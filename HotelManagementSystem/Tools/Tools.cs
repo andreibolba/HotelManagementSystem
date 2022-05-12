@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem.Tools
 {
+
     internal class Tools
     {
     }

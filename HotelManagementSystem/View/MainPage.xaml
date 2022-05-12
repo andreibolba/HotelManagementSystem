@@ -5,8 +5,109 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelManagementSystem.View"
         mc:Ignorable="d"
-        Title="MainPage" Height="450" Width="800">
+        Title="MainPage" 
+        Height="800" 
+        Width="1280"
+        ResizeMode="NoResize"
+        Background="White">
+
     <Grid>
-        
+        <Ellipse 
+                 Margin="-406,-164,754,-128"
+                 Fill="#ff171f"
+                 >
+        </Ellipse>
+        <Label 
+            Content="Welcome to our Hotel!" 
+            HorizontalAlignment="Left" 
+            Margin="90,289,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White"
+            FontSize="35"
+            FontFamily="Impact">
+        </Label>
+        <Grid
+            Height="700"
+            Width="400" 
+            VerticalAlignment="Center" 
+            Margin="720,0,130,0"
+            >
+            <Label 
+            Content="Log in below to get started" 
+            HorizontalAlignment="Center" 
+            Margin="0,149,0,401" 
+            Width="Auto"
+            Height="50"
+            FontSize="25"
+            FontFamily="Impact"
+            Foreground="Black"
+            />
+
+            <Label Content="E-mail address:" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,-100,0,0" 
+                   FontSize="25"
+                   FontFamily="Impact"
+                   Width="Auto"
+                   Height="50"/>
+
+            <TextBox 
+                Margin="55,263,55,287" 
+                TextWrapping="Wrap" 
+                Text="Email adress" 
+                Width="290"
+                Height="40"
+                FontSize="20"
+                Background="LightGray"
+                AcceptsTab="True"
+                />
+
+            <Label Content="Password:" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,130,0,0" 
+                   FontSize="25"
+                   FontFamily="Impact"
+                   Width="Auto"
+                   Height="50"/>
+
+            <TextBox 
+                Margin="55,383,55,177" 
+                TextWrapping="Wrap" 
+                Text="Password" 
+                Width="290"
+                Height="40"
+                FontSize="20"
+                Background="LightGray"
+                AcceptsTab="True"
+                />
+
+            <Button Content="Log In" 
+                    Margin="74,514,74,0" 
+                    Width="250"
+                    Height="50"
+                    FontSize="25"                    
+                    VerticalAlignment="Top"
+                    
+                    />
+            <Button Content="Sign Up" 
+                    Margin="0,600,0,0" 
+                    Width="250"
+                    Height="50"
+                    FontSize="25"                    
+                    VerticalAlignment="Top"
+                    />
+            <Ellipse 
+                HorizontalAlignment="Center" 
+                Height="100" 
+                Margin="0,30,0,0" 
+                Stroke="Black" 
+                VerticalAlignment="Top" 
+                Width="100"
+                Fill="CadetBlue"/>
+
+
+
+        </Grid>
+
     </Grid>
 </Window>

@@ -5,109 +5,96 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelManagementSystem.View"
         mc:Ignorable="d"
-        Title="MainPage" 
-        Height="800" 
-        Width="1280"
-        ResizeMode="NoResize"
-        Background="White">
+        Title="LogIn" 
+        Height="418" 
+        Width="733.5"
+        ResizeMode="NoResize" 
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="7"/>
+    </WindowChrome.WindowChrome>
 
-    <Grid>
-        <Ellipse 
-                 Margin="-406,-164,754,-128"
-                 Fill="#ff171f"
-                 >
-        </Ellipse>
-        <Label 
-            Content="Welcome to our Hotel!" 
+    <Window.Resources>
+
+        <Storyboard x:Key="Intro">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="image">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-42">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <QuinticEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Intro}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Background="#272537">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="471.675" Margin="0,0,0,-53.675" VerticalAlignment="Top" Width="269" Source="/Resources/9b7c05edaf95a1b893bf4e303d7f0f9f.jpg" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label" Content="Login to your account." HorizontalAlignment="Left" Margin="308,76,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans" FontSize="19"/>
+        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy" Content="Email Address" HorizontalAlignment="Left" Margin="339,114.873,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
+        <TextBox 
+            x:Name="textBox" 
             HorizontalAlignment="Left" 
-            Margin="90,289,0,0" 
+            Height="30" 
+            Margin="345,139,0,0" 
+            TextWrapping="Wrap" 
             VerticalAlignment="Top" 
-            Foreground="White"
-            FontSize="35"
-            FontFamily="Impact">
-        </Label>
-        <Grid
-            Height="700"
-            Width="400" 
-            VerticalAlignment="Center" 
-            Margin="720,0,130,0"
-            >
-            <Label 
-            Content="Log in below to get started" 
-            HorizontalAlignment="Center" 
-            Margin="0,149,0,401" 
-            Width="Auto"
-            Height="50"
-            FontSize="25"
-            FontFamily="Impact"
-            Foreground="Black"
-            />
+            Width="323" 
+            BorderBrush="#7FFFFFFF" 
+            FontFamily="Open Sans" 
+            CaretBrush="White" BorderThickness="0,0,0,1"
+            Background="Transparent"/>
+        <PasswordBox x:Name="textBox_Copy" Background="Transparent" HorizontalAlignment="Left" Height="30" Margin="345,202,0,0"   VerticalAlignment="Top" Width="323" BorderBrush="#7FFFFFFF" FontFamily="Open Sans" RenderTransformOrigin="0.502,0.711" BorderThickness="0,0,0,1"/>
+        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy1" Content="Password" HorizontalAlignment="Left" Margin="339,177.216,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="20" Margin="644,144.216,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/icons8-email-32.png"/>
+        <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="20" Margin="644,206.559,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/icons8-lock-32.png"/>
+        <Button x:Name="button" Content="Log in" HorizontalAlignment="Left" Margin="345,282,0,0" VerticalAlignment="Top" Width="323" BorderBrush="{x:Null}" FontSize="12" FontFamily="Open Sans" Height="36">
 
-            <Label Content="E-mail address:" 
-                   HorizontalAlignment="Center" 
-                   Margin="0,-100,0,0" 
-                   FontSize="25"
-                   FontFamily="Impact"
-                   Width="Auto"
-                   Height="50"/>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF00F260" Offset="0"/>
+                    <GradientStop Color="#FF0575E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
-            <TextBox 
-                Margin="55,263,55,287" 
-                TextWrapping="Wrap" 
-                Text="Email adress" 
-                Width="290"
-                Height="40"
-                FontSize="20"
-                Background="LightGray"
-                AcceptsTab="True"
-                />
+        <Button x:Name="button2" Content="Sign Up" HorizontalAlignment="Left" Margin="345,326,0,0" VerticalAlignment="Top" Width="323" BorderBrush="{x:Null}" FontSize="12" FontFamily="Open Sans" Height="36">
 
-            <Label Content="Password:" 
-                   HorizontalAlignment="Center" 
-                   Margin="0,130,0,0" 
-                   FontSize="25"
-                   FontFamily="Impact"
-                   Width="Auto"
-                   Height="50"/>
-
-            <TextBox 
-                Margin="55,383,55,177" 
-                TextWrapping="Wrap" 
-                Text="Password" 
-                Width="290"
-                Height="40"
-                FontSize="20"
-                Background="LightGray"
-                AcceptsTab="True"
-                />
-
-            <Button Content="Log In" 
-                    Margin="74,514,74,0" 
-                    Width="250"
-                    Height="50"
-                    FontSize="25"                    
-                    VerticalAlignment="Top"
-                    
-                    />
-            <Button Content="Sign Up" 
-                    Margin="0,600,0,0" 
-                    Width="250"
-                    Height="50"
-                    FontSize="25"                    
-                    VerticalAlignment="Top"
-                    />
-            <Ellipse 
-                HorizontalAlignment="Center" 
-                Height="100" 
-                Margin="0,30,0,0" 
-                Stroke="Black" 
-                VerticalAlignment="Top" 
-                Width="100"
-                Fill="CadetBlue"/>
-
-
-
-        </Grid>
-
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF00F260" Offset="0"/>
+                    <GradientStop Color="#FF0575E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

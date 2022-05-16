@@ -33,7 +33,7 @@
         </EventTrigger>
     </Window.Triggers>
     <Grid Background="#272537">
-        <Image x:Name="image" HorizontalAlignment="Left" Height="471.675" Margin="0,0,0,-53.675" VerticalAlignment="Top" Width="269" Source="/Resources/9b7c05edaf95a1b893bf4e303d7f0f9f.jpg" RenderTransformOrigin="0.5,0.5">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="471.675" Margin="0,0,0,-53.675" VerticalAlignment="Top" Width="269" Source="/Resources/background.jpg" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -59,8 +59,8 @@
             Background="Transparent"/>
         <PasswordBox x:Name="textBox_Copy" Background="Transparent" HorizontalAlignment="Left" Height="30" Margin="345,202,0,0"   VerticalAlignment="Top" Width="323" BorderBrush="#7FFFFFFF" FontFamily="Open Sans" RenderTransformOrigin="0.502,0.711" BorderThickness="0,0,0,1"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy1" Content="Password" HorizontalAlignment="Left" Margin="339,177.216,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="20" Margin="644,144.216,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/icons8-email-32.png"/>
-        <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="20" Margin="644,206.559,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/icons8-lock-32.png"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="20" Margin="644,144.216,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
+        <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="20" Margin="644,206.559,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>
         <Button x:Name="button" Content="Log in" HorizontalAlignment="Left" Margin="345,282,0,0" VerticalAlignment="Top" Width="323" BorderBrush="{x:Null}" FontSize="12" FontFamily="Open Sans" Height="36">
 
             <Button.Background>

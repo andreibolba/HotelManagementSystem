@@ -100,11 +100,9 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\9b7c05edaf95a1b893bf4e303d7f0f9f.jpg" />
-    <Resource Include="Resources\icons8-email-32.png" />
-    <Resource Include="Resources\icons8-google-16.png" />
-    <Resource Include="Resources\icons8-lock-32.png" />
-    <Resource Include="Resources\ic_media_close_clear_cancel.png" />
+    <Resource Include="Resources\background.jpg" />
+    <Resource Include="Resources\email.png" />
+    <Resource Include="Resources\lock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

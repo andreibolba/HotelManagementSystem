@@ -56,10 +56,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Tools\Tools.cs" />
+    <Compile Include="ViewModel\AdminMainPageVM.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
+    <Compile Include="ViewModel\ClientMainPageVM.cs" />
     <Compile Include="ViewModel\LogInVM.cs" />
     <Compile Include="ViewModel\RelayCommands.cs" />
     <Compile Include="ViewModel\SignUpVM.cs" />
+    <Compile Include="ViewModel\StaffMainPage.cs" />
+    <Compile Include="View\AdminMainPage.xaml.cs">
+      <DependentUpon>AdminMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClientMainPage.xaml.cs">
+      <DependentUpon>ClientMainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
@@ -70,11 +79,34 @@
     <Compile Include="View\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\StaffMainPage.xaml.cs">
+      <DependentUpon>StaffMainPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Theme\MenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\SearchBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ClientMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SignUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StaffMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,6 +144,9 @@
     <Resource Include="Resources\background.jpg" />
     <Resource Include="Resources\email.png" />
     <Resource Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\basic.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

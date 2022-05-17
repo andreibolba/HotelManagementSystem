@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem.ViewModel
 {
-    class MainPageVM:BaseVM
+    class LogInVM:BaseVM
     {
     }
 }

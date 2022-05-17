@@ -4,18 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelManagementSystem.View"
+        xmlns:vm="clr-namespace:HotelManagementSystem.ViewModel"
         mc:Ignorable="d"
         Title="SignUp" 
         Height="418" 
         Width="733.5"
         ResizeMode="NoResize" 
         WindowStyle="None" 
-        WindowStartupLocation="CenterScreen"
-        Background="#272537">
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:SignUpVM/>
+    </Window.DataContext>
+    
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="7"/>
     </WindowChrome.WindowChrome>
-
     <Window.Resources>
 
         <Storyboard x:Key="Intro">
@@ -33,7 +37,7 @@
             <BeginStoryboard Storyboard="{StaticResource Intro}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid Background="#272537" Margin="0,0,4,0">
+    <Grid Background="#272537" Margin="0,0,0,0">
         <Image x:Name="image" HorizontalAlignment="Left" Height="471.675" Margin="0,0,0,-53.675" VerticalAlignment="Top" Width="269" Source="/Resources/background.jpg" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
@@ -62,7 +66,18 @@
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy1" Content="Password" HorizontalAlignment="Left" Margin="286,173,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="20" Margin="467,144,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
         <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="20" Margin="465,202,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>
-        <Button x:Name="button" Content="Back to log in" HorizontalAlignment="Left" Margin="330,371,0,0" VerticalAlignment="Top" Width="157" BorderBrush="{x:Null}" FontSize="12" FontFamily="Open Sans" Height="36">
+        <Button 
+            x:Name="button" 
+            Content="Back to log in" 
+            HorizontalAlignment="Left" 
+            Margin="330,371,0,0" 
+            VerticalAlignment="Top" 
+            Width="157" 
+            BorderBrush="{x:Null}" 
+            FontSize="12" 
+            FontFamily="Open Sans" 
+            Height="36"
+            Command="{Binding LogInButton}">
 
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

@@ -9,24 +9,22 @@ using System.Windows.Input;
 
 namespace HotelManagementSystem.ViewModel
 {
-    class LogInVM:BaseVM
+     class SignUpVM:BaseVM
     {
-        private ICommand m_signUp;
-
-        public void signUp(object parameter)
+        private ICommand m_backToLogIn;
+        public void logIn(object parameter)
         {
-            SignUp signUp = new SignUp();
-            signUp.Show();
+            LogIn logIn=new LogIn();
+            logIn.Show();
             Application.Current.Windows[0].Close();
-        } 
-
-        public ICommand SignUp
+        }
+        public ICommand LogInButton
         {
             get
             {
-                if (m_signUp == null)
-                    m_signUp = new RelayCommand(signUp);
-                return m_signUp;
+                if (m_backToLogIn == null)
+                    m_backToLogIn = new RelayCommand(logIn);
+                return m_backToLogIn;
             }
         }
     }

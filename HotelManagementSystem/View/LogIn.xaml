@@ -93,6 +93,7 @@
             FontSize="12" 
             FontFamily="Open Sans" 
             Height="36"
+            Command="{Binding LogInButton}"
             >
 
             <Button.Background>

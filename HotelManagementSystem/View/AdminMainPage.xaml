@@ -28,7 +28,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Hello Bobi"
+        <TextBlock Text="{Binding helloText}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left"
                    Margin="10,0,0,0"
@@ -67,10 +67,10 @@
         <Button Content="Log Out"
                 Grid.Row="1"
                 Height="30"
-                Width="100"
+                Width="70"
                 VerticalAlignment="Bottom"
-                HorizontalAlignment="Left"
-                Margin="18"
+                HorizontalAlignment="Center"
+                Margin="80,0,0,10"
                 Background="Transparent"
                 BorderBrush="White"
                 Foreground="White"
@@ -102,6 +102,24 @@
                 <ImageBrush ImageSource="/Resources/basic.jpg"/>
             </Ellipse.Fill>
         </Ellipse>
+        <Button Content="Profile"
+            Grid.Row="1"
+            Height="30"
+            Width="70"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Margin="-80,0,0,10"
+            Background="Transparent"
+            BorderBrush="White"
+            Foreground="White"
+            FontFamily="Open Sans"
+            Command="{Binding Path=Profile}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
 
     </Grid>

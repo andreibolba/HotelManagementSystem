@@ -1,4 +1,5 @@
-﻿using HotelManagementSystem.View;
+﻿using HotelManagementSystem.Model.EntityLayer;
+using HotelManagementSystem.View;
 using System.Windows;
 using System.Windows.Input;
 
@@ -6,7 +7,26 @@ namespace HotelManagementSystem.ViewModel
 {
     class AdminMainPageVM:BaseVM
     {
+        public static Users loggedUser;
+        public string helloText { get; set; }
+
+        public AdminMainPageVM()
+        {
+            helloText = "Hello, " + loggedUser.Username;
+            OnPropertyChanged("helloText");
+        }
+
+
+
         private ICommand m_logOut;
+        private ICommand m_profile;
+
+        public void profile(object parameter)
+        {
+            Profile profile = new Profile(loggedUser);
+            profile.Show();
+            Application.Current.Windows[0].Close();
+        }
 
         public void logOut(object parameter)
         {
@@ -22,6 +42,16 @@ namespace HotelManagementSystem.ViewModel
                 if (m_logOut == null)
                     m_logOut = new RelayCommand(logOut);
                 return m_logOut;
+            }
+        }
+
+        public ICommand Profile
+        {
+            get
+            {
+                if(m_profile == null)
+                    m_profile=new RelayCommand(profile);
+                return m_profile;
             }
         }
     }

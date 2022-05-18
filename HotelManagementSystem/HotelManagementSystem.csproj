@@ -87,6 +87,7 @@
     <Compile Include="ViewModel\BaseVM.cs" />
     <Compile Include="ViewModel\ClientMainPageVM.cs" />
     <Compile Include="ViewModel\LogInVM.cs" />
+    <Compile Include="ViewModel\ProfileVM.cs" />
     <Compile Include="ViewModel\RelayCommands.cs" />
     <Compile Include="ViewModel\SignUpVM.cs" />
     <Compile Include="ViewModel\StaffMainPageVM.cs" />
@@ -102,6 +103,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -126,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Profile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

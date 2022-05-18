@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelManagementSystem.Model.EntityLayer;
+using HotelManagementSystem.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +21,9 @@ namespace HotelManagementSystem.View
     /// </summary>
     public partial class StaffMainPage : Window
     {
-        public StaffMainPage()
+        public StaffMainPage(Users loggedUser)
         {
+            StaffMainPageVM.loggedUser = loggedUser;
             InitializeComponent();
         }
     }

@@ -17,14 +17,15 @@ using System.Windows.Shapes;
 namespace HotelManagementSystem.View
 {
     /// <summary>
-    /// Interaction logic for ClientMainPage.xaml
+    /// Interaction logic for Profile.xaml
     /// </summary>
-    public partial class ClientMainPage : Window
+    public partial class Profile : Window
     {
-        public ClientMainPage(Users loggedUSer)
+        public Profile(Users loggedUser)
         {
-            ClientMainPageVM.loggedUser = loggedUSer;
+            ProfileVM.loggedUser = loggedUser;
             InitializeComponent();
         }
+
     }
 }

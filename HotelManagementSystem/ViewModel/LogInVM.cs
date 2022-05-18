@@ -57,15 +57,15 @@ namespace HotelManagementSystem.ViewModel
             switch (role)
             {
                 case "admin.ro":
-                    AdminMainPage adminMain = new AdminMainPage();
+                    AdminMainPage adminMain = new AdminMainPage(loggedUser);
                     adminMain.Show();
                     break;
                 case "sundaystaff.ro":
-                    StaffMainPage staffMain = new StaffMainPage();
+                    StaffMainPage staffMain = new StaffMainPage(loggedUser);
                     staffMain.Show();
                     break;
                 default:
-                    ClientMainPage clientMain = new ClientMainPage();
+                    ClientMainPage clientMain = new ClientMainPage(loggedUser);
                     clientMain.Show();
                     break;
             }

@@ -11,6 +11,9 @@ namespace HotelManagementSystem.ViewModel
 {
     class LogInVM:BaseVM
     {
+        public string email { get; set; }
+        public string password { get; set; }
+
         private ICommand m_signUp;
         private ICommand m_logIn;
 
@@ -23,9 +26,12 @@ namespace HotelManagementSystem.ViewModel
 
         public void logIn(object parameter)
         {
+            MessageBox.Show(email + "\n" + password);
+            
+            /*
             AdminMainPage adminMain = new AdminMainPage();
             adminMain.Show();
-            Application.Current.Windows[0].Close();
+            Application.Current.Windows[0].Close();*/
         }
         public ICommand SignUp
         {

@@ -52,7 +52,7 @@
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label" Content="Login to your account." HorizontalAlignment="Left" Margin="308,76,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans" FontSize="19"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy" Content="Email Address" HorizontalAlignment="Left" Margin="339,114.873,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <TextBox 
-            x:Name="textBox" 
+            x:Name="emailTB" 
             HorizontalAlignment="Left" 
             Height="30" 
             Margin="345,139,0,0"  
@@ -64,9 +64,10 @@
             CaretBrush="White"
             FontSize="21"
             BorderThickness="0,0,0,1"
-            Background="Transparent"/>
-        <PasswordBox 
-            x:Name="textBox_Copy" 
+            Background="Transparent"
+            Text="{Binding email}"/>
+        <TextBox 
+            x:Name="passwordTB" 
             Background="Transparent" 
             HorizontalAlignment="Left" 
             Height="30" 
@@ -79,7 +80,9 @@
             BorderThickness="0,0,0,1" 
             Foreground="White"
             CaretBrush="White"
-            FontSize="20"/>
+            FontSize="21"
+            Text="{Binding password}"
+            />
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy1" Content="Password" HorizontalAlignment="Left" Margin="339,177.216,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <Image x:Name="image1" HorizontalAlignment="Left" Height="20" Margin="644,144.216,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
         <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="20" Margin="644,206.559,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>

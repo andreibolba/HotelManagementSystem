@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelManagementSystem.View"
-       mc:Ignorable="d"
+        xmlns:vm="clr-namespace:HotelManagementSystem.ViewModel"
+        mc:Ignorable="d"
         Title="Client" 
         Height="418" 
         Width="733.5"
@@ -12,6 +13,10 @@
         WindowStyle="None" 
         WindowStartupLocation="CenterScreen"
         Background="#272537">
+
+    <Window.DataContext>
+        <vm:ClientMainPageVM/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -70,7 +75,8 @@
                 Background="Transparent"
                 BorderBrush="White"
                 Foreground="White"
-                FontFamily="Open Sans">
+                FontFamily="Open Sans"
+                Command="{Binding LogOut}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

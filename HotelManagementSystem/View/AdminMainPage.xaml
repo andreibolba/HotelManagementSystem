@@ -13,6 +13,10 @@
         WindowStyle="None" 
         WindowStartupLocation="CenterScreen"
         Background="#272537">
+    <Window.DataContext>
+        <vm:AdminMainPageVM/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -70,7 +74,8 @@
                 Background="Transparent"
                 BorderBrush="White"
                 Foreground="White"
-                FontFamily="Open Sans">
+                FontFamily="Open Sans"
+                Command="{Binding LogOut}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

@@ -1,10 +1,10 @@
-﻿using HotelManagementSystem.View;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
+using HotelManagementSystem.View;
 
 namespace HotelManagementSystem.ViewModel
 {
-    class ClientMainPageVM:BaseVM
+    class StaffMainPageVM:BaseVM
     {
         private ICommand m_logOut;
 
@@ -17,11 +17,11 @@ namespace HotelManagementSystem.ViewModel
 
         public ICommand LogOut
         {
-            get
+            get 
             {
-                if (m_logOut == null)
-                    m_logOut = new RelayCommand(logOut);
-                return m_logOut;
+                if(m_logOut == null)
+                    m_logOut=new RelayCommand(logOut);
+                return m_logOut; 
             }
         }
     }

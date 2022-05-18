@@ -4,14 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HotelManagementSystem.View"
-mc:Ignorable="d"
-        Title="LogIn" 
+        xmlns:vm="clr-namespace:HotelManagementSystem.ViewModel"
+        mc:Ignorable="d"
+        Title="Staff" 
         Height="418" 
         Width="733.5"
         ResizeMode="NoResize" 
         WindowStyle="None" 
         WindowStartupLocation="CenterScreen"
         Background="#272537">
+    <Window.DataContext>
+        <vm:StaffMainPageVM/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -37,26 +41,17 @@ mc:Ignorable="d"
                          Foreground="White"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"/>
-            <RadioButton Content="Clients"
+            <RadioButton Content="Offers"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"/>
-            <RadioButton Content="Bookings"
+            <RadioButton Content="Services"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"/>
-            <RadioButton Content="Aditional services"
-                         Height="50"
-                         Foreground="White"
-                         FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}"/>
-            <RadioButton Content="Features"
-                         Height="50"
-                         Foreground="White"
-                         FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}"/>
+            
         </StackPanel>
 
         <Button Content="Log Out"
@@ -69,7 +64,8 @@ mc:Ignorable="d"
                 Background="Transparent"
                 BorderBrush="White"
                 Foreground="White"
-                FontFamily="Open Sans">
+                FontFamily="Open Sans"
+                Command="{Binding LogOut}">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

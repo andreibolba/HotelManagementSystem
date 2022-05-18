@@ -1,6 +1,9 @@
-﻿using HotelManagementSystem.View;
+﻿using HotelManagementSystem.Model.BusinessLogicLayer;
+using HotelManagementSystem.Model.EntityLayer;
+using HotelManagementSystem.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +14,19 @@ namespace HotelManagementSystem.ViewModel
 {
     class LogInVM:BaseVM
     {
+        Users loggedUser=new Users();
+        UsersBLL userBLL = new UsersBLL();
+        /*public LogInVM()
+        {
+            UsersList = userBLL.GetAllPersons();
+        }
+
+        public ObservableCollection<Users> UsersList
+        {
+            get => userBLL.UsersList;
+            set => userBLL.UsersList = value;
+        }*/
+
         public string email { get; set; }
         public string password { get; set; }
 
@@ -26,12 +42,35 @@ namespace HotelManagementSystem.ViewModel
 
         public void logIn(object parameter)
         {
-            MessageBox.Show(email + "\n" + password);
-            
-            /*
-            AdminMainPage adminMain = new AdminMainPage();
-            adminMain.Show();
-            Application.Current.Windows[0].Close();*/
+            if(string.IsNullOrEmpty(email)||string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Empty fields");
+                return;
+            }
+            loggedUser=userBLL.getLoggedUser(email, password);
+            if(loggedUser.IdUser==-1)
+            {
+                MessageBox.Show("Account not found!");
+                return ;
+            }
+            string role=loggedUser.Email.Substring(loggedUser.Email.IndexOf("@")+1);
+            switch (role)
+            {
+                case "admin.ro":
+                    AdminMainPage adminMain = new AdminMainPage();
+                    adminMain.Show();
+                    break;
+                case "sundaystaff.ro":
+                    StaffMainPage staffMain = new StaffMainPage();
+                    staffMain.Show();
+                    break;
+                default:
+                    ClientMainPage clientMain = new ClientMainPage();
+                    clientMain.Show();
+                    break;
+            }
+            Application.Current.Windows[0].Close();
+
         }
         public ICommand SignUp
         {

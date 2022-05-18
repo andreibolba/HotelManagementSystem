@@ -16,7 +16,7 @@
     <Window.DataContext>
         <vm:SignUpVM/>
     </Window.DataContext>
-    
+
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0" UseAeroCaptionButtons="False" ResizeBorderThickness="7"/>
     </WindowChrome.WindowChrome>
@@ -49,22 +49,41 @@
             </Image.RenderTransform>
         </Image>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label" Content="Create an account." HorizontalAlignment="Left" Margin="286,17,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans" FontSize="19"/>
-        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy" Content="Email Address" HorizontalAlignment="Left" Margin="286,115,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
+        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy" Content="Email Address" HorizontalAlignment="Left" Margin="285,333,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <TextBox 
+            
+            FontSize="18"
+            Foreground="White"
             x:Name="textBox" 
             HorizontalAlignment="Left" 
             Height="30" 
-            Margin="286,139,0,0" 
+            Margin="376,327,0,0" 
             TextWrapping="Wrap" 
+            VerticalAlignment="Top" 
+            Width="335" 
+            BorderBrush="#7FFFFFFF" 
+            FontFamily="Open Sans" 
+            CaretBrush="White" BorderThickness="0,0,0,1"
+            Background="Transparent"
+            Text="{Binding email}"/>
+        <TextBox 
+            CaretBrush="White"
+            FontSize="18"
+            Foreground="White"
+            x:Name="textBox_Copy" 
+            Background="Transparent" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="286,202,0,0"   
             VerticalAlignment="Top" 
             Width="201" 
             BorderBrush="#7FFFFFFF" 
             FontFamily="Open Sans" 
-            CaretBrush="White" BorderThickness="0,0,0,1"
-            Background="Transparent"/>
-        <PasswordBox x:Name="textBox_Copy" Background="Transparent" HorizontalAlignment="Left" Height="30" Margin="286,202,0,0"   VerticalAlignment="Top" Width="201" BorderBrush="#7FFFFFFF" FontFamily="Open Sans" RenderTransformOrigin="0.502,0.711" BorderThickness="0,0,0,1"/>
+            RenderTransformOrigin="0.502,0.711" 
+            BorderThickness="0,0,0,1"
+            Text="{Binding pass}"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy1" Content="Password" HorizontalAlignment="Left" Margin="286,173,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="20" Margin="467,144,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="20" Margin="691,330,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
         <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="20" Margin="465,202,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>
         <Button 
             x:Name="button" 
@@ -95,7 +114,18 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="button2" Content="Sign Up" HorizontalAlignment="Left" Margin="506,373,0,0" VerticalAlignment="Top" Width="162" BorderBrush="{x:Null}" FontSize="12" FontFamily="Open Sans" Height="36">
+        <Button 
+            x:Name="button2" 
+            Content="Sign Up" 
+            HorizontalAlignment="Left" 
+            Margin="506,373,0,0" 
+            VerticalAlignment="Top" 
+            Width="162" 
+            BorderBrush="{x:Null}" 
+            FontSize="12" 
+            FontFamily="Open Sans" 
+            Height="36"
+            Command="{Binding Path=SignUpButton}">
 
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -114,7 +144,8 @@
         </Button>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy2" Content="First Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="286,56,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans" Width="100" Height="24"/>
         <TextBox 
-            x:Name="textBox_Copy1" 
+            FontSize="18"
+            Foreground="White"
             HorizontalAlignment="Left" 
             Height="30" 
             Margin="286,80,0,0" 
@@ -124,29 +155,50 @@
             BorderBrush="#7FFFFFFF" 
             FontFamily="Open Sans" 
             CaretBrush="White" BorderThickness="0,0,0,1"
-            Background="Transparent"/>
+            Background="Transparent"
+            Text="{Binding fName}"/>
         <Image x:Name="image1_Copy1" HorizontalAlignment="Left" Height="20" Margin="467,85,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
-        <TextBox x:Name="textBox_Copy2" Background="Transparent" HorizontalAlignment="Left" Height="30" Margin="286,274,0,0"   VerticalAlignment="Top" Width="201" BorderBrush="#7FFFFFFF" FontFamily="Open Sans" RenderTransformOrigin="0.502,0.711" BorderThickness="0,0,0,1"/>
+        <TextBox 
+            CaretBrush="White"
+            FontSize="18"
+            Foreground="White"
+            x:Name="textBox_Copy2" 
+            Background="Transparent" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="286,274,0,0"   
+            VerticalAlignment="Top" 
+            Width="201" 
+            BorderBrush="#7FFFFFFF" 
+            FontFamily="Open Sans" 
+            RenderTransformOrigin="0.502,0.711" 
+            BorderThickness="0,0,0,1"
+            Text="{Binding phone}"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy3" Content="Phone Number" HorizontalAlignment="Left" Margin="286,245,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <Image x:Name="image1_Copy2" HorizontalAlignment="Left" Height="20" Margin="465,274,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy4" Content="Username" HorizontalAlignment="Left" Margin="511,115,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <TextBox 
+            FontSize="18"
+            Foreground="White"
             x:Name="textBox_Copy3" 
             HorizontalAlignment="Left" 
             Height="30" 
-            Margin="510,139,0,0" 
+            Margin="510,133,0,0" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="201" 
             BorderBrush="#7FFFFFFF" 
             FontFamily="Open Sans" 
             CaretBrush="White" BorderThickness="0,0,0,1"
-            Background="Transparent"/>
+            Background="Transparent"
+            Text="{Binding username}"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy5" Content="Brthdate" HorizontalAlignment="Left" Margin="511,173,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
-        <Image x:Name="image1_Copy3" HorizontalAlignment="Left" Height="20" Margin="691,144,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
+        <Image x:Name="image1_Copy3" HorizontalAlignment="Left" Height="20" Margin="691,137,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
         <Image x:Name="image1_Copy4" HorizontalAlignment="Left" Height="20" Margin="689,204,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy6" Content="Last Name" HorizontalAlignment="Left" Margin="511,56,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <TextBox 
+            FontSize="18"
+            Foreground="White"
             x:Name="textBox_Copy5" 
             HorizontalAlignment="Left" 
             Height="30" 
@@ -157,14 +209,54 @@
             BorderBrush="#7FFFFFFF" 
             FontFamily="Open Sans" 
             CaretBrush="White" BorderThickness="0,0,0,1"
-            Background="Transparent"/>
+            Background="Transparent"
+            Text="{Binding lName}"/>
         <Image x:Name="image1_Copy5" HorizontalAlignment="Left" Height="20" Margin="691,85,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/email.png"/>
-        <TextBox x:Name="textBox_Copy6" Background="Transparent" HorizontalAlignment="Left" Height="30" Margin="510,274,0,0"   VerticalAlignment="Top" Width="201" BorderBrush="#7FFFFFFF" FontFamily="Open Sans" RenderTransformOrigin="0.502,0.711" BorderThickness="0,0,0,1"/>
+        <TextBox 
+            CaretBrush="White"
+            FontSize="18"
+            Foreground="White"
+            x:Name="textBox_Copy6" 
+            Background="Transparent" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="510,274,0,0"   
+            VerticalAlignment="Top" 
+            Width="201" 
+            BorderBrush="#7FFFFFFF" 
+            FontFamily="Open Sans" 
+            RenderTransformOrigin="0.502,0.711" 
+            BorderThickness="0,0,0,1"
+            Text="{Binding address}"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy7" Content="Address" HorizontalAlignment="Left" Margin="511,245,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <Image x:Name="image1_Copy6" HorizontalAlignment="Left" Height="20" Margin="689,274,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>
-        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy8" Content="Gender" HorizontalAlignment="Left" Margin="409,327,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
-        <ComboBox HorizontalAlignment="Left" Margin="490,328,0,0" VerticalAlignment="Top" Width="120"/>
-        <DatePicker HorizontalAlignment="Left" Margin="511,202,0,0" VerticalAlignment="Top" Width="173" Height="30" Background="#00000000" BorderThickness="0,0,0,0"/>
+        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy8" Content="Gender" HorizontalAlignment="Left" Margin="286,115,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
+        <DatePicker 
+            HorizontalAlignment="Left" 
+            Margin="511,202,0,0" 
+            VerticalAlignment="Top" 
+            Width="173" 
+            Height="30" 
+            Background="#00000000" 
+            BorderThickness="0,0,0,0"
+            SelectedDate="{Binding birthday}"/>
+        <TextBox 
+            CaretBrush="White"
+            FontSize="18"
+            Foreground="White"
+            x:Name="textBox_Copy4" 
+            Background="Transparent" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="288,132,0,0"   
+            VerticalAlignment="Top" 
+            Width="199" 
+            BorderBrush="#7FFFFFFF" 
+            FontFamily="Open Sans" 
+            RenderTransformOrigin="0.502,0.711" 
+            BorderThickness="0,0,0,1"
+            Text="{Binding sex}"/>
+        <Image x:Name="image1_Copy7" HorizontalAlignment="Left" Height="20" Margin="464,135,0,0" VerticalAlignment="Top" Width="23" Source="/Resources/lock.png"/>
 
     </Grid>
 </Window>

@@ -11,8 +11,6 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
 {
     public class UsersBLL
     {
-        public ObservableCollection<Users> UsersList { get; set; }
-
         UsersDAL userDAL = new UsersDAL();
 
         public ObservableCollection<Users> GetAllPersons()
@@ -23,6 +21,11 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
         public Users getLoggedUser(string email,string password)
         {
             return userDAL.logInUser(email, password);
+        }
+
+        public void addUser(Users user)
+        {
+            userDAL.AddPerson(user);
         }
     }
 }

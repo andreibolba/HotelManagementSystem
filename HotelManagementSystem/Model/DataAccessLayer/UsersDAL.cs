@@ -86,5 +86,36 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                 con.Close();
             }
         }
+
+        public void AddPerson(Users user)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("AddUser", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter fName = new SqlParameter("@fname", user.FirstName);
+                SqlParameter lName = new SqlParameter("@lname", user.SecondName);
+                SqlParameter username = new SqlParameter("@username", user.Username);
+                SqlParameter email = new SqlParameter("@email", user.Email);
+                SqlParameter pass = new SqlParameter("@pass", user.Password);
+                SqlParameter phone = new SqlParameter("@phone", user.Phone);
+                SqlParameter birthday = new SqlParameter("@birthday", user.Birthday);
+                SqlParameter sex = new SqlParameter("@sex", user.Sex);
+                SqlParameter address = new SqlParameter("@address", user.Address);
+                SqlParameter deleted = new SqlParameter("@deleted", user.Deleted);
+                cmd.Parameters.Add(fName);
+                cmd.Parameters.Add(lName);
+                cmd.Parameters.Add(username);
+                cmd.Parameters.Add(email);
+                cmd.Parameters.Add(pass);
+                cmd.Parameters.Add(phone);
+                cmd.Parameters.Add(birthday);
+                cmd.Parameters.Add(sex);
+                cmd.Parameters.Add(address);
+                cmd.Parameters.Add(deleted);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

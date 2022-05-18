@@ -17,10 +17,27 @@ namespace HotelManagementSystem.Model.EntityLayer
         private string username;
         private string phone;
         private DateTime birthday;
-        private char sex;
+        private string sex;
         private string address;
         private Bitmap picture;
-        private bool deleted;
+        private string deleted;
+
+        public Users()
+        {
+            id_user = -1;
+            first_name = string.Empty;
+            second_name = string.Empty;
+            email = string.Empty;
+            password = string.Empty;
+            username = string.Empty;
+            phone = string.Empty;
+            birthday = DateTime.MinValue;
+            sex = string.Empty;
+            address = string.Empty;
+            deleted = string.Empty;
+            picture = null;
+
+        }
 
         public int? IdUser
         {
@@ -105,7 +122,7 @@ namespace HotelManagementSystem.Model.EntityLayer
             }
         }
 
-        private char Sex
+        public string Sex
         {
             get { return sex; }
             set
@@ -135,7 +152,7 @@ namespace HotelManagementSystem.Model.EntityLayer
             }
         }
 
-        public bool Deleted
+        public string Deleted
         {
             get { return deleted; }
             set
@@ -143,6 +160,20 @@ namespace HotelManagementSystem.Model.EntityLayer
                 deleted = value;
                 NotifyPropertyChanged("Deleted");
             }
+        }
+
+        public override string ToString()
+        {
+            string write=null;
+            write += id_user.ToString()+"\n";
+            write += first_name.ToString() + "\n";
+            write += second_name.ToString() + "\n";
+            write += username.ToString() + "\n";
+            write += email.ToString() + "\n";
+            write += password.ToString() + "\n";
+            write += address.ToString() + "\n";
+            write += phone.ToString() + "\n";
+            return write;
         }
     }
 }

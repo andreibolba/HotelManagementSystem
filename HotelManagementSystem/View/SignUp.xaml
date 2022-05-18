@@ -48,7 +48,16 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label" Content="Create an account." HorizontalAlignment="Left" Margin="286,17,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans" FontSize="19"/>
+        <Label 
+            RenderOptions.ClearTypeHint="Enabled" 
+            x:Name="label" 
+            Content="{Binding mainTitle}" 
+            HorizontalAlignment="Left" 
+            Margin="286,17,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontFamily="Open Sans" 
+            FontSize="19"/>
         <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy" Content="Email Address" HorizontalAlignment="Left" Margin="285,333,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
         <TextBox 
             
@@ -87,7 +96,7 @@
         <Image x:Name="image1_Copy" HorizontalAlignment="Left" Height="20" Margin="465,202,0,0" VerticalAlignment="Top" Width="24" Source="/Resources/lock.png"/>
         <Button 
             x:Name="button" 
-            Content="Back to log in" 
+            Content="{Binding backButtonText}" 
             HorizontalAlignment="Left" 
             Margin="330,371,0,0" 
             VerticalAlignment="Top" 
@@ -116,7 +125,7 @@
 
         <Button 
             x:Name="button2" 
-            Content="Sign Up" 
+            Content="{Binding signButtonText}" 
             HorizontalAlignment="Left" 
             Margin="506,373,0,0" 
             VerticalAlignment="Top" 

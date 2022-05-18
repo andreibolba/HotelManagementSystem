@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace HotelManagementSystem.ViewModel
 {
-     class SignUpVM:BaseVM
+    class SignUpVM : BaseVM
     {
         UsersBLL userBLL = new UsersBLL();
         public string fName { get; set; }
@@ -27,9 +27,32 @@ namespace HotelManagementSystem.ViewModel
         public string address { get; set; }
         public Bitmap pic { get; set; }
 
+        public string mainTitle { get; set; }
+        public string backButtonText { get; set; }
+        public string signButtonText { get; set; }
+        public static bool isEdited { get; set; } = false;
+
+        public static Users loggedUser { get; set; }
+
+        public SignUpVM()
+        {
+            if (isEdited == true)
+            {
+                mainTitle = "Edit account!";
+                backButtonText = "Back";
+                signButtonText = "Edit";
+                birthday = DateTime.Now;
+                return;
+            }
+            mainTitle = "Create an account!";
+            backButtonText = "Back to log in";
+            signButtonText = "Sign Up";
+            birthday = DateTime.Now;
+        }
+
         private bool isFilled()
         {
-            if(string.IsNullOrEmpty(fName))
+            if (string.IsNullOrEmpty(fName))
                 return false;
             if (string.IsNullOrEmpty(lName))
                 return false;
@@ -45,51 +68,131 @@ namespace HotelManagementSystem.ViewModel
                 return false;
             if (string.IsNullOrEmpty(address))
                 return false;
-            if (birthday==null)
+            if (birthday == null)
                 return false;
             return true;
+        }
+
+        private bool isEditedFilled()
+        {
+            if (string.IsNullOrEmpty(fName) == false)
+                return true;
+            if (string.IsNullOrEmpty(lName) == false)
+                return true;
+            if (string.IsNullOrEmpty(username) == false)
+                return true;
+            if (string.IsNullOrEmpty(email) == false)
+                return true;
+            if (string.IsNullOrEmpty(pass) == false)
+                return true;
+            if (string.IsNullOrEmpty(phone) == false)
+                return true;
+            if (string.IsNullOrEmpty(sex) == false)
+                return true;
+            if (string.IsNullOrEmpty(address) == false)
+                return true;
+            if (birthday == null)
+                return true;
+            return false;
         }
 
         private ICommand m_backToLogIn;
         private ICommand m_signUp;
         public void logIn(object parameter)
         {
-            LogIn logIn=new LogIn();
-            logIn.Show();
+            if (isEdited == false)
+            {
+                LogIn logIn = new LogIn();
+                logIn.Show();
+                Application.Current.Windows[0].Close();
+                return;
+            }
+
+            Profile profile = new Profile(loggedUser);
+            profile.Show();
             Application.Current.Windows[0].Close();
         }
 
         public void signUp(object parameter)
         {
-            if (isFilled() == false)
+            if (isEdited == false)
             {
-                MessageBox.Show("There are some empty fileds!");
+                if (isFilled() == false)
+                {
+                    MessageBox.Show("There are some empty fileds!");
+                    return;
+                }
+                Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                Match match = regex.Match(email);
+                if (match.Success == false)
+                {
+                    MessageBox.Show("Incorect email format!");
+                    return;
+                }
+                try
+                {
+                    Users newUser = new Users();
+                    newUser.FirstName = fName;
+                    newUser.SecondName = lName;
+                    newUser.Email = email;
+                    newUser.Phone = phone;
+                    newUser.Username = username;
+                    newUser.Deleted = "false";
+                    newUser.Address = address;
+                    newUser.Birthday = birthday;
+                    newUser.Sex = sex;
+                    newUser.Password = pass;
+                    userBLL.addUser(newUser);
+                    MessageBox.Show("Your account has been added!");
+                    LogIn logIn = new LogIn();
+                    logIn.Show();
+                    Application.Current.Windows[0].Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
                 return;
             }
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match match = regex.Match(email);
-            if (match.Success == false)
+            if (isEditedFilled() == false)
             {
-                MessageBox.Show("Incorect email format!");
+                MessageBox.Show("Fill at least one!");
                 return;
+            }
+            if (string.IsNullOrEmpty(email) == false)
+            {
+                Regex regexE = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                Match matchE = regexE.Match(email);
+                if (matchE.Success == false)
+                {
+                    MessageBox.Show("Incorect email format!");
+                    return;
+                }
             }
             try
             {
-                Users newUser = new Users();
-                newUser.FirstName = fName;
-                newUser.SecondName = lName;
-                newUser.Email = email;
-                newUser.Phone = phone;
-                newUser.Username = username;
-                newUser.Deleted = "false";
-                newUser.Address = address;
-                newUser.Birthday = birthday;
-                newUser.Sex = sex;
-                newUser.Password = pass;
-                userBLL.addUser(newUser);
-                MessageBox.Show("Your account has been added!");
-                LogIn logIn = new LogIn();
-                logIn.Show();
+                if (string.IsNullOrEmpty(fName) == false)
+                    loggedUser.FirstName = fName;
+                if (string.IsNullOrEmpty(lName) == false)
+                    loggedUser.SecondName = lName;
+                if (string.IsNullOrEmpty(username) == false)
+                    loggedUser.Username = username;
+                if (string.IsNullOrEmpty(email) == false)
+                    loggedUser.Email = email;
+                if (string.IsNullOrEmpty(pass) == false)
+                    loggedUser.Password = pass;
+                if (string.IsNullOrEmpty(phone) == false)
+                    loggedUser.Phone = phone;
+                if (string.IsNullOrEmpty(sex) == false)
+                    loggedUser.Sex = sex;
+                if (string.IsNullOrEmpty(address) == false)
+                    loggedUser.Address = address;
+                if (birthday != null)
+                    loggedUser.Birthday = birthday;
+                userBLL.editUser(loggedUser);
+                MessageBox.Show("Your account has been edited!");
+                Profile profile = new Profile(loggedUser);
+                profile.Show();
                 Application.Current.Windows[0].Close();
             }
             catch (Exception ex)
@@ -113,8 +216,8 @@ namespace HotelManagementSystem.ViewModel
         {
             get
             {
-                if(m_signUp == null)
-                    m_signUp= new RelayCommand(signUp);
+                if (m_signUp == null)
+                    m_signUp = new RelayCommand(signUp);
                 return m_signUp;
             }
         }

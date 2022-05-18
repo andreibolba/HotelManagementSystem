@@ -132,6 +132,7 @@
             FontSize="15"
             Grid.Column="1"
             Visibility="{Binding visible}"
+            Command="{Binding Delete}"
             >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -311,7 +312,8 @@
             FontFamily="Open Sans"
             FontSize="15"
             Grid.Column="1"
-            Visibility="{Binding visible}">
+            Visibility="{Binding visible}"
+            Command="{Binding Edit}">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

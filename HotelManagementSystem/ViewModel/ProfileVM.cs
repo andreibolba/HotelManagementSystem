@@ -1,4 +1,5 @@
-﻿using HotelManagementSystem.Model.EntityLayer;
+﻿using HotelManagementSystem.Model.BusinessLogicLayer;
+using HotelManagementSystem.Model.EntityLayer;
 using HotelManagementSystem.View;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace HotelManagementSystem.ViewModel
 {
     class ProfileVM :BaseVM
     {
-        public static Users loggedUser; 
+        public static Users loggedUser;
+        UsersBLL userBLL = new UsersBLL();
 
         public string fName { get; set; }
         public string lName { get; set; }
@@ -56,7 +58,22 @@ namespace HotelManagementSystem.ViewModel
 
         private ICommand m_logOut; 
         private ICommand m_back;
-        
+        private ICommand m_edit;
+        private ICommand m_delete;
+
+        public void delete(object parameter)
+        {
+            userBLL.deleteUser(loggedUser);
+            logOut(parameter);
+        }
+
+        public void edit(object parameter)
+        {
+            SignUp edit=new SignUp(loggedUser);
+            edit.Show();
+            Application.Current.Windows[0].Close();
+        }
+
         public void back(object parameter)
         {
             string role = loggedUser.Email.Substring(loggedUser.Email.IndexOf("@") + 1);
@@ -102,6 +119,26 @@ namespace HotelManagementSystem.ViewModel
                 if(m_back==null)
                     m_back=new RelayCommand(back);
                 return m_back;
+            }
+        }
+
+        public ICommand Edit
+        {
+            get
+            {
+                if(m_edit==null)
+                    m_edit=new RelayCommand(edit);
+                return m_edit;
+            }
+        }
+
+        public ICommand Delete
+        {
+            get
+            {
+                if(m_delete==null)
+                    m_delete=new RelayCommand(delete);
+                return m_delete;
             }
         }
     }

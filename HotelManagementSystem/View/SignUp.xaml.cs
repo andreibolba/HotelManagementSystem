@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelManagementSystem.Model.EntityLayer;
+using HotelManagementSystem.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +23,14 @@ namespace HotelManagementSystem.View
     {
         public SignUp()
         {
+            SignUpVM.isEdited = false;
+            InitializeComponent();
+        }
+
+        public SignUp(Users loggedUser)
+        {
+            SignUpVM.loggedUser = loggedUser;
+            SignUpVM.isEdited = true;
             InitializeComponent();
         }
     }

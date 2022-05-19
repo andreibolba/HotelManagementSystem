@@ -212,8 +212,8 @@
     <Compile Include="View\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainPageOptions.xaml.cs">
-      <DependentUpon>MainPageOptions.xaml</DependentUpon>
+    <Compile Include="View\MainPageOption.xaml.cs">
+      <DependentUpon>MainPageOption.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
@@ -254,7 +254,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainPageOptions.xaml">
+    <Page Include="View\MainPageOption.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

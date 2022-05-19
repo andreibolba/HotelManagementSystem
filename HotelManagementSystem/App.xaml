@@ -12,9 +12,9 @@
                 <ResourceDictionary Source="Theme/SearchBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <!--<DataTemplate DataType="{x:Type viewModel:MainPageOptionVM}">
-                <view:MainPageOptions/>
-            </DataTemplate>-->
+            <DataTemplate DataType="{x:Type viewModel:MainPageOptionVM}">
+                <view:MainPageOption/>
+            </DataTemplate>
             
         </ResourceDictionary>
     </Application.Resources>

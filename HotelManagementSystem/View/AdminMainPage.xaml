@@ -41,7 +41,8 @@
                          Height="50"
                          Foreground="White"
                          FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}"/>
+                         Style="{StaticResource MenuButtonTheme}"
+                         IsChecked="True"/>
             <RadioButton Content="Clients"
                          Height="50"
                          Foreground="White"
@@ -123,8 +124,8 @@
 
         <ContentControl Grid.Row="1"
                         Grid.Column="1"
-                        Content="{Binding CurrentView}"
                         Margin="10"
+                        Content="{Binding CurrentView}"
                         />
 
 

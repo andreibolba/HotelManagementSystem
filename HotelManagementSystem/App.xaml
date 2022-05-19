@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:HotelManagementSystem"
+             xmlns:viewModel="clr-namespace:HotelManagementSystem.ViewModel"
+             xmlns:view="clr-namespace:HotelManagementSystem.View"
              StartupUri="./View/LogIn.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -9,6 +11,10 @@
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/SearchBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:FeatureViewModel}">
+                <view:FeatureView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

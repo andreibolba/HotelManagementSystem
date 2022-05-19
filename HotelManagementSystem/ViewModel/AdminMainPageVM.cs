@@ -7,6 +7,22 @@ namespace HotelManagementSystem.ViewModel
 {
     class AdminMainPageVM:BaseVM
     {
+        public FeatureView featureView { get; set; }
+
+        private object _currentView;
+
+        public object CurrentView
+        {
+            get { return _currentView; }
+            set
+            {
+                _currentView = value;
+                OnPropertyChanged("CurrentView");
+            }
+        }
+
+
+
         public static Users loggedUser;
         public string helloText { get; set; }
 
@@ -15,6 +31,8 @@ namespace HotelManagementSystem.ViewModel
         {
             helloText = "Hello, " + loggedUser.Username;
             OnPropertyChanged("helloText");
+            featureView = new FeatureView();
+            CurrentView= featureView;
         }
 
 

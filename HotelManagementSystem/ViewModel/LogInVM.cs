@@ -1,12 +1,6 @@
 ﻿using HotelManagementSystem.Model.BusinessLogicLayer;
 using HotelManagementSystem.Model.EntityLayer;
 using HotelManagementSystem.View;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -14,6 +8,7 @@ namespace HotelManagementSystem.ViewModel
 {
     class LogInVM:BaseVM
     {
+
         Users loggedUser=new Users();
         UsersBLL userBLL = new UsersBLL();
         /*public LogInVM()

@@ -10,6 +10,7 @@ namespace HotelManagementSystem.ViewModel
         public static Users loggedUser;
         public string helloText { get; set; }
 
+
         public AdminMainPageVM()
         {
             helloText = "Hello, " + loggedUser.Username;

@@ -77,12 +77,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\BusinessLogicLayer\FeatureBLL.cs" />
     <Compile Include="Model\BusinessLogicLayer\UsersBLL.cs" />
     <Compile Include="Model\DataAccessLayer\DALHelper.cs" />
+    <Compile Include="Model\DataAccessLayer\FeatureDAL.cs" />
     <Compile Include="Model\DataAccessLayer\UsersDAL.cs" />
     <Compile Include="Model\EntityLayer\BasePropertyChanged.cs" />
+    <Compile Include="Model\EntityLayer\Feature.cs" />
     <Compile Include="Model\EntityLayer\Users.cs" />
     <Compile Include="Tools\Tools.cs" />
+    <Compile Include="ViewModel\AddFeatureVM.cs" />
     <Compile Include="ViewModel\AdminMainPageVM.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
     <Compile Include="ViewModel\ClientMainPageVM.cs" />
@@ -91,11 +95,17 @@
     <Compile Include="ViewModel\RelayCommands.cs" />
     <Compile Include="ViewModel\SignUpVM.cs" />
     <Compile Include="ViewModel\StaffMainPageVM.cs" />
+    <Compile Include="View\AddFeature.xaml.cs">
+      <DependentUpon>AddFeature.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminMainPage.xaml.cs">
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Features.xaml.cs">
+      <DependentUpon>Features.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
@@ -106,6 +116,9 @@
     </Compile>
     <Compile Include="View\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Room.xaml.cs">
+      <DependentUpon>Room.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
@@ -121,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddFeature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AdminMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,11 +146,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Features.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Room.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,7 +198,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\test.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\background.jpg" />
     <Resource Include="Resources\email.png" />
@@ -182,5 +209,6 @@
   <ItemGroup>
     <Resource Include="Resources\basic.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

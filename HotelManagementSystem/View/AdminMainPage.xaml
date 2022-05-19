@@ -121,6 +121,12 @@
             </Button.Resources>
         </Button>
 
+        <ContentControl Grid.Row="1"
+                        Grid.Column="1"
+                        Content="{Binding CurrentView}"
+                        Margin="10"
+                        />
+
 
     </Grid>
 </Window>

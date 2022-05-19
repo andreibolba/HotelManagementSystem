@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:HotelManagementSystem.View"
              mc:Ignorable="d" 
              d:DesignHeight="323" d:DesignWidth="513.5">
+    
     <StackPanel>
         <Label 
             RenderOptions.ClearTypeHint="Enabled" 

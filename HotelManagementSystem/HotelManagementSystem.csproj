@@ -197,9 +197,8 @@
     <Compile Include="ViewModel\AdminMainPageVM.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
     <Compile Include="ViewModel\ClientMainPageVM.cs" />
-    <Compile Include="ViewModel\FeatureViewModel.cs" />
     <Compile Include="ViewModel\LogInVM.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MainPageOptionVM.cs" />
     <Compile Include="ViewModel\ProfileVM.cs" />
     <Compile Include="ViewModel\RelayCommands.cs" />
     <Compile Include="ViewModel\SignUpVM.cs" />
@@ -213,11 +212,8 @@
     <Compile Include="View\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Features.xaml.cs">
-      <DependentUpon>Features.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\FeatureView.xaml.cs">
-      <DependentUpon>FeatureView.xaml</DependentUpon>
+    <Compile Include="View\MainPageOptions.xaml.cs">
+      <DependentUpon>MainPageOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
@@ -258,11 +254,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Features.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\FeatureView.xaml">
+    <Page Include="View\MainPageOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

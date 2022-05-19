@@ -5,9 +5,9 @@ using System.Windows.Input;
 
 namespace HotelManagementSystem.ViewModel
 {
-    class AdminMainPageVM:BaseVM
+    class AdminMainPageVM : BaseVM
     {
-        public FeatureView featureView { get; set; }
+        public MainPageOptionVM mainPageOption{get; set;}
 
         private object _currentView;
 
@@ -31,8 +31,8 @@ namespace HotelManagementSystem.ViewModel
         {
             helloText = "Hello, " + loggedUser.Username;
             OnPropertyChanged("helloText");
-            featureView = new FeatureView();
-            CurrentView= featureView;
+            mainPageOption = new MainPageOptionVM();
+            CurrentView= mainPageOption;
         }
 
 

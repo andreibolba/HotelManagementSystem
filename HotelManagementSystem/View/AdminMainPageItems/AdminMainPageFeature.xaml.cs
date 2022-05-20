@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelManagementSystem.Model.EntityLayer;
+using HotelManagementSystem.ViewModel.AdminMainPageItems;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +22,9 @@ namespace HotelManagementSystem.View.AdminMainPageItems
     /// </summary>
     public partial class AdminMainPageFeature : UserControl
     {
-        public AdminMainPageFeature()
+        public AdminMainPageFeature(Users loggedUser)
         {
+            AdminMainPageFeatureVM.loggedUser = loggedUser;
             InitializeComponent();
         }
     }

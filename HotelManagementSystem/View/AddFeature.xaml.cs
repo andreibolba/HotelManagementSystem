@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelManagementSystem.Model.EntityLayer;
+using HotelManagementSystem.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +21,18 @@ namespace HotelManagementSystem.View
     /// </summary>
     public partial class AddFeature : Window
     {
-        public AddFeature()
+        public AddFeature(Users loggedUser, string title)
         {
+            AddFeatureVM.loggedUser = loggedUser;
+            AddFeatureVM.title = title;
+            InitializeComponent();
+        }
+
+        public AddFeature(Users loggedUser, string title,int id)
+        {
+            AddFeatureVM.loggedUser = loggedUser;
+            AddFeatureVM.title = title;
+            AddFeatureVM.id = id;
             InitializeComponent();
         }
 

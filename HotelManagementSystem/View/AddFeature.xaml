@@ -49,13 +49,31 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label" Content="Add feature&#xD;&#xA;" HorizontalAlignment="Left" Margin="460,33,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans" FontSize="19" Height="34"/>
-        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy" Content="Feature name&#xD;&#xA;" HorizontalAlignment="Left" Margin="339,83,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
+        <Label 
+            RenderOptions.ClearTypeHint="Enabled" 
+            x:Name="label" 
+            Content="{Binding titleBind}" 
+            HorizontalAlignment="Left" 
+            Margin="460,33,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontFamily="Open Sans" 
+            FontSize="19" 
+            Height="34"/>
+        <Label 
+            RenderOptions.ClearTypeHint="Enabled" 
+            x:Name="label_Copy" 
+            Content="{Binding featureNameLabel}" 
+            HorizontalAlignment="Left" 
+            Margin="338,151,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontFamily="Open Sans"/>
         <TextBox 
             x:Name="emailTB" 
             HorizontalAlignment="Left" 
             Height="30" 
-            Margin="345,111,0,0"  
+            Margin="344,179,0,0"  
             VerticalAlignment="Top" 
             Width="323"
             BorderBrush="#7FFFFFFF" 
@@ -65,34 +83,16 @@
             FontSize="21"
             BorderThickness="0,0,0,1"
             Background="Transparent"
-            Text=""/>
-        <TextBox 
-            x:Name="passwordTB" 
-            Background="Transparent" 
-            HorizontalAlignment="Left" 
-            Height="130" 
-            Margin="345,180,0,0"   
-            VerticalAlignment="Top" 
-            Width="323" 
-            BorderBrush="#7FFFFFFF" 
-            FontFamily="Open Sans" 
-            RenderTransformOrigin="0.502,0.711" 
-            BorderThickness="0,0,0,1" 
-            Foreground="White"
-            CaretBrush="White"
-            FontSize="21"
-            Text=""
-            />
-        <Label RenderOptions.ClearTypeHint="Enabled" x:Name="label_Copy1" Content="Feature description" HorizontalAlignment="Left" Margin="339,151,0,0" VerticalAlignment="Top" Foreground="White" FontFamily="Open Sans"/>
+            Text="{Binding featureName}"/>
         <Button 
             x:Name="button" 
-            Content="Add feature" 
+            Content="{Binding titleBind}" 
             Margin="345,326,238,0" 
             VerticalAlignment="Top" 
             FontSize="12" 
             FontFamily="Open Sans" 
             Height="36"
-            Command=""
+            Command="{Binding AddEdit}"
             >
 
             <Button.Background>
@@ -121,7 +121,7 @@
             FontSize="12" 
             FontFamily="Open Sans" 
             Height="36"
-            Command="">
+            Command="{Binding Back}">
 
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

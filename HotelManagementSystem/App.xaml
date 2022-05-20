@@ -2,8 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:HotelManagementSystem"
-             xmlns:viewModel="clr-namespace:HotelManagementSystem.ViewModel"
-             xmlns:view="clr-namespace:HotelManagementSystem.View"
+             xmlns:viewModel="clr-namespace:HotelManagementSystem.ViewModel.AdminMainPageItems"
+             xmlns:view="clr-namespace:HotelManagementSystem.View.AdminMainPageItems"
              StartupUri="./View/LogIn.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -12,8 +12,20 @@
                 <ResourceDictionary Source="Theme/SearchBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type viewModel:MainPageOptionVM}">
-                <view:MainPageOption/>
+            <DataTemplate DataType="{x:Type viewModel:AdminMainPageClientsVM}">
+                <view:AdminMainPageClients/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AdminMainPageFeatureVM}">
+                <view:AdminMainPageFeature/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AdminMainPageRoomsVM}">
+                <view:AdminMainPageRooms/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AdminMainPageServicesVM}">
+                <view:AdminMainPageServices/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:AdminMainPageStaffVM}">
+                <view:AdminMainPageStaff/>
             </DataTemplate>
             
         </ResourceDictionary>

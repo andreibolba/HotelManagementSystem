@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HotelManagementSystem.View
+namespace HotelManagementSystem.View.AdminMainPageItems
 {
     /// <summary>
-    /// Interaction logic for MainPageOption.xaml
+    /// Interaction logic for AdminMainPageClients.xaml
     /// </summary>
-    public partial class MainPageOption : UserControl
+    public partial class AdminMainPageClients : UserControl
     {
-        public MainPageOption()
+        public AdminMainPageClients()
         {
             InitializeComponent();
         }

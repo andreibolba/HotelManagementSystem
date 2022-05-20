@@ -42,26 +42,31 @@
                          Foreground="White"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
-                         IsChecked="True"/>
+                         IsChecked="True"
+                         Command="{Binding Rooms}"/>
             <RadioButton Content="Clients"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
+                         Command="{Binding Clients}"
                          Style="{StaticResource MenuButtonTheme}"/>
             <RadioButton Content="Staff"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
+                         Command="{Binding Staff}"
                          Style="{StaticResource MenuButtonTheme}"/>
             <RadioButton Content="Aditional services"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
+                         Command="{Binding Services}"
                          Style="{StaticResource MenuButtonTheme}"/>
             <RadioButton Content="Features"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
+                         Command="{Binding Features}"
                          Style="{StaticResource MenuButtonTheme}"/>
         </StackPanel>
 

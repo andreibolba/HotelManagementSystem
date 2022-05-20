@@ -1,5 +1,6 @@
 ﻿using HotelManagementSystem.Model.EntityLayer;
 using HotelManagementSystem.View;
+using HotelManagementSystem.View.AdminMainPageItems;
 using System.Windows;
 using System.Windows.Input;
 
@@ -7,19 +8,14 @@ namespace HotelManagementSystem.ViewModel
 {
     class AdminMainPageVM : BaseVM
     {
-        public MainPageOptionVM mainPageOption{get; set;}
+        public AdminMainPageRooms adminMainPageRooms { get; set; }
+        public AdminMainPageServices adminMainPageServices { get; set; }
+        public AdminMainPageStaff adminMainPageStaff { get; set; }
+        public AdminMainPageClients adminMainPageClients { get; set; }
+        public AdminMainPageFeature adminMainPageFeature { get; set; }
 
-        private object _currentView;
 
-        public object CurrentView
-        {
-            get { return _currentView; }
-            set
-            {
-                _currentView = value;
-                OnPropertyChanged("CurrentView");
-            }
-        }
+        public object CurrentView { get; set; }
 
 
 
@@ -31,14 +27,23 @@ namespace HotelManagementSystem.ViewModel
         {
             helloText = "Hello, " + loggedUser.Username;
             OnPropertyChanged("helloText");
-            mainPageOption = new MainPageOptionVM("rooms");
-            CurrentView= mainPageOption;
+            adminMainPageRooms=new AdminMainPageRooms();
+            CurrentView = adminMainPageRooms;
+            adminMainPageClients=new AdminMainPageClients();
+            adminMainPageFeature=new AdminMainPageFeature();
+            adminMainPageServices=new AdminMainPageServices();
+            adminMainPageStaff = new AdminMainPageStaff();
         }
 
 
 
         private ICommand m_logOut;
         private ICommand m_profile;
+        private ICommand m_rooms;
+        private ICommand m_features;
+        private ICommand m_staff;
+        private ICommand m_services;
+        private ICommand m_client;
 
         public void profile(object parameter)
         {
@@ -52,6 +57,36 @@ namespace HotelManagementSystem.ViewModel
             LogIn logIn = new LogIn();
             logIn.Show();
             Application.Current.Windows[0].Close();
+        }
+
+        public void rooms(object parameter)
+        {
+            CurrentView = adminMainPageRooms;
+            OnPropertyChanged("CurrentView");
+        }
+
+        public void staff(object parameter)
+        {
+            CurrentView = adminMainPageStaff;
+            OnPropertyChanged("CurrentView");
+        }
+
+        public void features(object parameter)
+        {
+            CurrentView = adminMainPageFeature;
+            OnPropertyChanged("CurrentView");
+        }
+
+        public void clients(object parameter)
+        {
+            CurrentView = adminMainPageClients;
+            OnPropertyChanged("CurrentView");
+        }
+
+        public void services(object parameter)
+        {
+            CurrentView = adminMainPageServices;
+            OnPropertyChanged("CurrentView");
         }
 
         public ICommand LogOut
@@ -71,6 +106,56 @@ namespace HotelManagementSystem.ViewModel
                 if(m_profile == null)
                     m_profile=new RelayCommand(profile);
                 return m_profile;
+            }
+        }
+
+        public ICommand Staff
+        {
+            get
+            {
+                if (m_staff == null)
+                    m_staff = new RelayCommand(staff);
+                return m_staff; 
+            }
+        }
+
+        public ICommand Clients
+        {
+            get
+            {
+                if (m_client == null)
+                    m_client = new RelayCommand(clients);
+                return m_client;
+            }
+        }
+
+        public ICommand Features
+        {
+            get
+            {
+                if (m_features == null)
+                    m_features = new RelayCommand(features);
+                return m_features;
+            }
+        }
+
+        public ICommand Services
+        {
+            get
+            {
+                if (m_services == null)
+                    m_services = new RelayCommand(services);
+                return m_services;
+            }
+        }
+
+        public ICommand Rooms
+        {
+            get
+            {
+                if (m_rooms == null)
+                    m_rooms = new RelayCommand(rooms);
+                return m_rooms;
             }
         }
     }

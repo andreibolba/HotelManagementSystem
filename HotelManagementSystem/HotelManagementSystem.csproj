@@ -193,12 +193,16 @@
     <Compile Include="Model\EntityLayer\Feature.cs" />
     <Compile Include="Model\EntityLayer\Users.cs" />
     <Compile Include="Tools\Tools.cs" />
+    <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageClientsVM.cs" />
+    <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageFeatureVM.cs" />
+    <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageRoomsVM.cs" />
+    <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageServicesVM.cs" />
+    <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageStaffVM.cs" />
     <Compile Include="ViewModel\AddFeatureVM.cs" />
     <Compile Include="ViewModel\AdminMainPageVM.cs" />
     <Compile Include="ViewModel\BaseVM.cs" />
     <Compile Include="ViewModel\ClientMainPageVM.cs" />
     <Compile Include="ViewModel\LogInVM.cs" />
-    <Compile Include="ViewModel\MainPageOptionVM.cs" />
     <Compile Include="ViewModel\ProfileVM.cs" />
     <Compile Include="ViewModel\RelayCommands.cs" />
     <Compile Include="ViewModel\SignUpVM.cs" />
@@ -209,11 +213,23 @@
     <Compile Include="View\AdminMainPage.xaml.cs">
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AdminMainPageItems\AdminMainPageClients.xaml.cs">
+      <DependentUpon>AdminMainPageClients.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMainPageItems\AdminMainPageFeature.xaml.cs">
+      <DependentUpon>AdminMainPageFeature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMainPageItems\AdminMainPageRooms.xaml.cs">
+      <DependentUpon>AdminMainPageRooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMainPageItems\AdminMainPageServices.xaml.cs">
+      <DependentUpon>AdminMainPageServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMainPageItems\AdminMainPageStaff.xaml.cs">
+      <DependentUpon>AdminMainPageStaff.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainPageOption.xaml.cs">
-      <DependentUpon>MainPageOption.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
@@ -250,11 +266,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ClientMainPage.xaml">
+    <Page Include="View\AdminMainPageItems\AdminMainPageClients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MainPageOption.xaml">
+    <Page Include="View\AdminMainPageItems\AdminMainPageFeature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMainPageItems\AdminMainPageRooms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMainPageItems\AdminMainPageServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMainPageItems\AdminMainPageStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ClientMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

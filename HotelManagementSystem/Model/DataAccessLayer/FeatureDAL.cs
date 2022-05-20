@@ -18,9 +18,9 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                 SqlCommand cmd = new SqlCommand("AddFeature", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter name = new SqlParameter("@name", feature.Name);
-                SqlParameter description = new SqlParameter("@description", feature.Description);
+                SqlParameter deleted = new SqlParameter("@deleted", feature.Deleted);
                 cmd.Parameters.Add(name);
-                cmd.Parameters.Add(description);
+                cmd.Parameters.Add(deleted);
                 con.Open();
                 cmd.ExecuteNonQuery();
             }

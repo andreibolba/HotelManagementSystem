@@ -10,13 +10,13 @@ namespace HotelManagementSystem.Model.EntityLayer
     {
         private int? id;
         private string name;
-        private string description;
+        private string deleted;
 
         public Feature()
         {
             id = -1;
             name= string.Empty;
-            description= string.Empty;
+            deleted = string.Empty;
         }
 
         public int? Id
@@ -39,11 +39,11 @@ namespace HotelManagementSystem.Model.EntityLayer
             }
         }
 
-        public string Description
+        public string Deleted
         {
-            get { return description; }
-            set { 
-                description = value; 
+            get { return deleted; }
+            set {
+                deleted = value; 
                 NotifyPropertyChanged("Description"); 
             }
         }

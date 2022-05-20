@@ -31,7 +31,7 @@ namespace HotelManagementSystem.ViewModel
         {
             helloText = "Hello, " + loggedUser.Username;
             OnPropertyChanged("helloText");
-            mainPageOption = new MainPageOptionVM();
+            mainPageOption = new MainPageOptionVM("rooms");
             CurrentView= mainPageOption;
         }
 

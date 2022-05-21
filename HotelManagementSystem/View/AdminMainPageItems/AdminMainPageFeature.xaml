@@ -25,9 +25,18 @@
             FontSize="19" 
             Height="34"/>
 
+        <ListView Height="180"
+                  Width="300"
+                  Background="#272537"
+                  Foreground="White"
+                  SelectedIndex="{Binding ID}"
+                  ItemsSource="{Binding features}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                  />
+
         <Grid  Height="60"
                VerticalAlignment="Bottom">
-        <Button 
+            <Button 
             x:Name="button_Copy" 
             Content="Add feature" 
             FontSize="12" 
@@ -36,22 +45,22 @@
             Width="100"
             Margin="-260,0,0,0"
             Command="{Binding Add}">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FF00F260" Offset="0"/>
-                    <GradientStop Color="#FF0575E6" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button 
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF00F260" Offset="0"/>
+                        <GradientStop Color="#FF0575E6" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button 
                 x:Name="button_Copy1" 
                 Content="Edit feature" 
                 FontSize="12" 
@@ -60,23 +69,23 @@
                 Command="{Binding Edit}" Width="100"
                 Margin="0,0,0,0"
             >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FF00F260" Offset="0"/>
-                    <GradientStop Color="#FF0575E6" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        
-        <Button 
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF00F260" Offset="0"/>
+                        <GradientStop Color="#FF0575E6" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Button 
                 x:Name="button_Copy3" 
                 Content="Delete feature" 
                 FontSize="12" 
@@ -85,21 +94,21 @@
                 Command="{Binding Delete}" Width="100"
                 Margin="260,0,0,0"
             >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FF00F260" Offset="0"/>
-                    <GradientStop Color="#FF0575E6" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <LinearGradientBrush.RelativeTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                                <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </LinearGradientBrush.RelativeTransform>
+                        <GradientStop Color="#FF00F260" Offset="0"/>
+                        <GradientStop Color="#FF0575E6" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </UserControl>

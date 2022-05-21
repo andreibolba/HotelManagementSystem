@@ -8,7 +8,7 @@ namespace HotelManagementSystem.Model.EntityLayer
 {
     public class Feature:BasePropertyChanged
     {
-        private int? id;
+        private int id;
         private string name;
         private string deleted;
 
@@ -19,7 +19,7 @@ namespace HotelManagementSystem.Model.EntityLayer
             deleted = string.Empty;
         }
 
-        public int? Id
+        public int Id
         {
             get { return id; }
             set

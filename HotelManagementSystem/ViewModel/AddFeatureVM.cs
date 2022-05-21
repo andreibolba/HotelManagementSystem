@@ -37,21 +37,30 @@ namespace HotelManagementSystem.ViewModel
 
         public void addEdit(object parameter)
         {
-            if(title=="Add feature")
+            Feature newFeature = new Feature();
+            if (title=="Add feature")
             {
                 if(string.IsNullOrEmpty(featureName))
                 {
                     MessageBox.Show("Insert a name!");
                     return;
                 }
-                Feature newFeature=new Feature();
                 newFeature.Name= featureName;
                 newFeature.Deleted = "false";
                 featureBLL.addFeature(newFeature);
                 MessageBox.Show("New feature added succesfully!");
                 return;
             }
-            MessageBox.Show("Edit");
+            if (string.IsNullOrEmpty(featureName)==false)
+            {
+                newFeature.Id = id;
+                newFeature.Name = featureName;
+                newFeature.Deleted = "false";
+                featureBLL.editFeature(newFeature);
+                MessageBox.Show("Update feature succesfully!");
+                return;
+            }
+            MessageBox.Show("Insert a name!");
         }
 
         public void back(object parameter)

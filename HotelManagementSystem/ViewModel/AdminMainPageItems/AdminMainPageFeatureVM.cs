@@ -40,17 +40,31 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
 
         private void edit(object parameter)
         {
-            AddFeature edit = new AddFeature(loggedUser, "Edit feature", featuresList[ID].Id);
-            edit.Show();
-            Application.Current.Windows[0].Close();
+            try
+            {
+                AddFeature edit = new AddFeature(loggedUser, "Edit feature", featuresList[ID].Id);
+                edit.Show();
+                Application.Current.Windows[0].Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No element to edit!");
+            }
         }
 
         private void delete(object parameter)
         {
-            featureBLL.deleteFeature(featuresList[ID].Id);
-            MessageBox.Show("User deleted succesfully!");
-            featuresList.Remove(featuresList[ID]);
-            features.Remove(features[ID]);
+            try
+            {
+                featureBLL.deleteFeature(featuresList[ID].Id);
+                MessageBox.Show("User deleted succesfully!");
+                featuresList.Remove(featuresList[ID]);
+                features.Remove(features[ID]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No element to delete!");
+            }
         }
 
         public ICommand Add

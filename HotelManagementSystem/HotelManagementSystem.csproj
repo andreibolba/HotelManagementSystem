@@ -185,14 +185,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\BusinessLogicLayer\FeatureBLL.cs" />
+    <Compile Include="Model\BusinessLogicLayer\ServiceBLL.cs" />
     <Compile Include="Model\BusinessLogicLayer\UsersBLL.cs" />
     <Compile Include="Model\DataAccessLayer\DALHelper.cs" />
     <Compile Include="Model\DataAccessLayer\FeatureDAL.cs" />
+    <Compile Include="Model\DataAccessLayer\ServiceDAL.cs" />
     <Compile Include="Model\DataAccessLayer\UsersDAL.cs" />
     <Compile Include="Model\EntityLayer\BasePropertyChanged.cs" />
     <Compile Include="Model\EntityLayer\Feature.cs" />
+    <Compile Include="Model\EntityLayer\Services.cs" />
     <Compile Include="Model\EntityLayer\Users.cs" />
     <Compile Include="Tools\Tools.cs" />
+    <Compile Include="ViewModel\AddServicesVM.cs" />
+    <Compile Include="View\AddServices.xaml.cs">
+      <DependentUpon>AddServices.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageClientsVM.cs" />
     <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageFeatureVM.cs" />
     <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageRoomsVM.cs" />
@@ -255,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Theme\SearchBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddServices.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

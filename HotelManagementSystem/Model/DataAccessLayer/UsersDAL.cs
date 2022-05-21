@@ -49,6 +49,78 @@ namespace HotelManagementSystem.Model.DataAccessLayer
             }
         }
 
+        public ObservableCollection<Users> GetAllStaff()
+        {
+            SqlConnection con = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetAllStaff", con);
+                ObservableCollection<Users> result = new ObservableCollection<Users>();
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Users user = new Users();
+                    user.IdUser = reader.GetInt32(0);
+                    user.FirstName = reader.GetString(1);
+                    user.SecondName = reader.GetString(2);
+                    user.Username = reader.GetString(3);
+                    user.Email = reader.GetString(4);
+                    user.Password = reader.GetString(5);
+                    user.Phone = reader.GetString(6);
+                    user.Birthday = reader.GetDateTime(7);
+                    user.Sex = reader.GetString(8);
+                    user.Address = reader.GetString(9);
+                    user.Picture = null;
+                    user.Deleted = reader.GetString(11);
+                    result.Add(user);
+                }
+                reader.Close();
+                return result;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public ObservableCollection<Users> GetAllClients()
+        {
+            SqlConnection con = DALHelper.Connection;
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetAllClients", con);
+                ObservableCollection<Users> result = new ObservableCollection<Users>();
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Users user = new Users();
+                    user.IdUser = reader.GetInt32(0);
+                    user.FirstName = reader.GetString(1);
+                    user.SecondName = reader.GetString(2);
+                    user.Username = reader.GetString(3);
+                    user.Email = reader.GetString(4);
+                    user.Password = reader.GetString(5);
+                    user.Phone = reader.GetString(6);
+                    user.Birthday = reader.GetDateTime(7);
+                    user.Sex = reader.GetString(8);
+                    user.Address = reader.GetString(9);
+                    user.Picture = null;
+                    user.Deleted = reader.GetString(11);
+                    result.Add(user);
+                }
+                reader.Close();
+                return result;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         public Users logInUser(string email, string password)
         {
             SqlConnection con = DALHelper.Connection;

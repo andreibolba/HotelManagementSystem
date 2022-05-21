@@ -25,15 +25,36 @@
             FontSize="19" 
             Height="34"/>
 
+        <DataGrid 
+            AutoGenerateColumns="False" 
+            Margin="0,0,0,0" 
+            Height="190"
+            Width="480"
+            ItemsSource="{Binding usersList}" 
+            IsReadOnly="True" 
+            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First name" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Second name" Binding="{Binding SecondName}"/>
+                <DataGridTextColumn Header="Username" Binding="{Binding Username}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}"/>
+                <DataGridTextColumn Header="Birthday" Binding="{Binding Birthday}"/>
+                <DataGridTextColumn Header="Sex" Binding="{Binding Sex}"/>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <Button 
             x:Name="button_Copy" 
-            Content="Add staff member" 
+            Content="Add staff memeber" 
             FontSize="12" 
             FontFamily="Open Sans" 
             Height="32"
-            Command="" Width="100"
-            Margin="27,275,386,16">
+            Width="120"
+            Margin="37,275,336,16"
+            Command="{Binding Add}">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -50,13 +71,13 @@
             </Button.Background>
         </Button>
         <Button 
-                x:Name="button_Copy1" 
-                Content="Edit staff member" 
-                FontSize="12" 
-                FontFamily="Open Sans" 
-                Height="32"
-                Command="" Width="100"
-                Margin="273,275,140,16"
+            x:Name="button_Copy1" 
+            Content="Edit staff member" 
+            FontSize="12" 
+            FontFamily="Open Sans" 
+            Height="32"
+            Command="{Binding Edit}" Width="120"
+            Margin="196,275,198,16"
             >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -74,37 +95,13 @@
             </Button.Background>
         </Button>
         <Button 
-                x:Name="button_Copy2" 
-                Content="Back" 
-                FontSize="12" 
-                FontFamily="Open Sans" 
-                Height="32"
-                Command="" Width="100"
-                Margin="390,275,24,16"
-            >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FF00F260" Offset="0"/>
-                    <GradientStop Color="#FF0575E6" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button 
-                x:Name="button_Copy3" 
-                Content="Delete staff" 
-                FontSize="12" 
-                FontFamily="Open Sans" 
-                Height="32"
-                Command="" Width="100"
-                Margin="152,275,262,16"
+            x:Name="button_Copy3" 
+            Content="Delete staff member" 
+            FontSize="12" 
+            FontFamily="Open Sans" 
+            Height="32"
+            Command="{Binding Delete}" Width="120"
+            Margin="340,275,54,16"
             >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

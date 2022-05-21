@@ -18,6 +18,15 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
             return userDAL.GetAllUsers();
         }
 
+        public ObservableCollection<Users> GetAllStaff()
+        {
+            return userDAL.GetAllStaff();
+        }
+
+        public ObservableCollection<Users> GetAllClients()
+        {
+            return userDAL.GetAllClients();
+        }
         public Users getLoggedUser(string email,string password)
         {
             return userDAL.logInUser(email, password);

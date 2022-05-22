@@ -13,6 +13,7 @@ namespace HotelManagementSystem.ViewModel
         public AdminMainPageStaff adminMainPageStaff { get; set; }
         public AdminMainPageClients adminMainPageClients { get; set; }
         public AdminMainPageFeature adminMainPageFeature { get; set; }
+        public AdminMainPageOffers adminMainPageOffers { get; set; }
 
 
         public object CurrentView { get; set; }
@@ -33,6 +34,7 @@ namespace HotelManagementSystem.ViewModel
             adminMainPageFeature=new AdminMainPageFeature(loggedUser);
             adminMainPageServices=new AdminMainPageServices(loggedUser);
             adminMainPageStaff = new AdminMainPageStaff();
+            adminMainPageOffers=new AdminMainPageOffers();
         }
 
 
@@ -44,6 +46,7 @@ namespace HotelManagementSystem.ViewModel
         private ICommand m_staff;
         private ICommand m_services;
         private ICommand m_client;
+        private ICommand m_offers;
 
         public void profile(object parameter)
         {
@@ -86,6 +89,12 @@ namespace HotelManagementSystem.ViewModel
         public void services(object parameter)
         {
             CurrentView = adminMainPageServices;
+            OnPropertyChanged("CurrentView");
+        }
+
+        public void offers(object parameter)
+        {
+            CurrentView = adminMainPageOffers;
             OnPropertyChanged("CurrentView");
         }
 
@@ -156,6 +165,16 @@ namespace HotelManagementSystem.ViewModel
                 if (m_rooms == null)
                     m_rooms = new RelayCommand(rooms);
                 return m_rooms;
+            }
+        }
+
+        public ICommand Offers
+        {
+            get
+            {
+                if (m_offers == null)
+                    m_offers = new RelayCommand(offers);
+                return m_offers;
             }
         }
     }

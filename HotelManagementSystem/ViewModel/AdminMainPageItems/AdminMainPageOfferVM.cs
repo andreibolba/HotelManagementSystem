@@ -7,51 +7,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace HotelManagementSystem.ViewModel.AdminMainPageItems
 {
-    class AdminMainPageStaffVM:BaseVM
+    class AdminMainPageOfferVM:BaseVM
     {
-        UsersBLL usersBLL = new UsersBLL();
+        OffersBLL offersBLL = new OffersBLL();
+        public ObservableCollection<string> offers { get; set; }
         public int ID { get; set; }
-        public ObservableCollection<Users> usersList { get; set; }
+        private ObservableCollection<Offers> offersList { get; set; }
         public static Users loggedUser { get; set; }
         private ICommand m_add;
         private ICommand m_edit;
         private ICommand m_delete;
 
-        public AdminMainPageStaffVM()
+        public AdminMainPageOfferVM()
         {
-            usersList = usersBLL.GetAllStaff();
+            offersList = offersBLL.getOffers();
+            offers = new ObservableCollection<string>();
+            foreach (Offers offer in offersList)
+                offers.Add(offer.Name+"-"+offer.Period+"zile("+offer.Price.ToString()+" Lei) perioada"+offer.StartDate+" - "+offer.EndDate);
         }
 
         private void add(object parameter)
         {
-            //AddServices add = new AddServices(loggedUser, "Add service");
-            //add.Show();
-            //Application.Current.Windows[0].Close();
+            AddServices add = new AddServices(loggedUser, "Add service");
+            add.Show();
+            Application.Current.Windows[0].Close();
         }
 
         private void edit(object parameter)
         {
-            //try
-            //{
-            //    AddServices edit = new AddServices(loggedUser, "Edit services", servicesList[ID].Id, servicesList[ID]);
-            //    edit.Show();
-            //    Application.Current.Windows[0].Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("No element to edit!");
-            //}
+            /*try
+            {
+                AddServices edit = new AddServices(loggedUser, "Edit services", servicesList[ID].Id,servicesList[ID]);
+                edit.Show();
+                Application.Current.Windows[0].Close();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("No element to edit!");
+            }*/
         }
 
         private void delete(object parameter)
         {
-            //offersBLL.deleteService(servicesList[ID]);
-            //MessageBox.Show("User deleted succesfully!");
-            //servicesList.Remove(servicesList[ID]);
-            //services.Remove(services[ID]);
+            /*offersBLL.deleteService(servicesList[ID]);
+            MessageBox.Show("User deleted succesfully!");
+            servicesList.Remove(servicesList[ID]);
+            services.Remove(services[ID]);*/
         }
 
         public ICommand Add

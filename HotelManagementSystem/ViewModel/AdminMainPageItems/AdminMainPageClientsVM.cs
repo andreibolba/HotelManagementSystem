@@ -48,7 +48,7 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
 
         private void delete(object parameter)
         {
-            //servicesBLL.deleteService(servicesList[ID]);
+            //offersBLL.deleteService(servicesList[ID]);
             //MessageBox.Show("User deleted succesfully!");
             //servicesList.Remove(servicesList[ID]);
             //services.Remove(services[ID]);

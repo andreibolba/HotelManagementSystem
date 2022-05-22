@@ -68,6 +68,12 @@
                          FontSize="14"
                          Command="{Binding Features}"
                          Style="{StaticResource MenuButtonTheme}"/>
+            <RadioButton Content="Offers"
+                         Height="50"
+                         Foreground="White"
+                         FontSize="14"
+                         Command="{Binding Offers}"
+                         Style="{StaticResource MenuButtonTheme}"/>
         </StackPanel>
 
         <Button Content="Log Out"
@@ -75,8 +81,8 @@
                 Height="30"
                 Width="70"
                 VerticalAlignment="Bottom"
-                HorizontalAlignment="Center"
-                Margin="80,0,0,10"
+                HorizontalAlignment="Left"
+                Margin="105,0,0,4"
                 Background="Transparent"
                 BorderBrush="White"
                 Foreground="White"
@@ -113,8 +119,8 @@
             Height="30"
             Width="70"
             VerticalAlignment="Bottom"
-            HorizontalAlignment="Center"
-            Margin="-80,0,0,10"
+            HorizontalAlignment="Left"
+            Margin="25,0,0,4"
             Background="Transparent"
             BorderBrush="White"
             Foreground="White"

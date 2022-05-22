@@ -185,18 +185,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\BusinessLogicLayer\FeatureBLL.cs" />
+    <Compile Include="Model\BusinessLogicLayer\OffersBLL.cs" />
     <Compile Include="Model\BusinessLogicLayer\ServiceBLL.cs" />
     <Compile Include="Model\BusinessLogicLayer\UsersBLL.cs" />
     <Compile Include="Model\DataAccessLayer\DALHelper.cs" />
     <Compile Include="Model\DataAccessLayer\FeatureDAL.cs" />
+    <Compile Include="Model\DataAccessLayer\OffersDAL.cs" />
     <Compile Include="Model\DataAccessLayer\ServiceDAL.cs" />
     <Compile Include="Model\DataAccessLayer\UsersDAL.cs" />
     <Compile Include="Model\EntityLayer\BasePropertyChanged.cs" />
     <Compile Include="Model\EntityLayer\Feature.cs" />
+    <Compile Include="Model\EntityLayer\Offers.cs" />
     <Compile Include="Model\EntityLayer\Services.cs" />
     <Compile Include="Model\EntityLayer\Users.cs" />
     <Compile Include="Tools\Tools.cs" />
     <Compile Include="ViewModel\AddServicesVM.cs" />
+    <Compile Include="ViewModel\AdminMainPageItems\AdminMainPageOfferVM.cs" />
     <Compile Include="View\AddServices.xaml.cs">
       <DependentUpon>AddServices.xaml</DependentUpon>
     </Compile>
@@ -225,6 +229,9 @@
     </Compile>
     <Compile Include="View\AdminMainPageItems\AdminMainPageFeature.xaml.cs">
       <DependentUpon>AdminMainPageFeature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminMainPageItems\AdminMainPageOffers.xaml.cs">
+      <DependentUpon>AdminMainPageOffers.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AdminMainPageItems\AdminMainPageRooms.xaml.cs">
       <DependentUpon>AdminMainPageRooms.xaml</DependentUpon>
@@ -282,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminMainPageItems\AdminMainPageFeature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminMainPageItems\AdminMainPageOffers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

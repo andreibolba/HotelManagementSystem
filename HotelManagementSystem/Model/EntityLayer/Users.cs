@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace HotelManagementSystem.Model.EntityLayer
 {
@@ -19,7 +20,8 @@ namespace HotelManagementSystem.Model.EntityLayer
         private DateTime birthday;
         private string sex;
         private string address;
-        private Bitmap picture;
+        private Image picture;
+        private Bitmap profilePic;
         private string deleted;
 
         public Users()
@@ -142,7 +144,7 @@ namespace HotelManagementSystem.Model.EntityLayer
             }
         }
 
-        public Bitmap Picture
+        public Image Picture
         {
             get { return picture; }
             set
@@ -150,6 +152,12 @@ namespace HotelManagementSystem.Model.EntityLayer
                 picture = value;
                 NotifyPropertyChanged("Picture");
             }
+        }
+
+        public Bitmap ProfilePic
+        {
+            get { return profilePic; }
+            set { profilePic = value;}
         }
 
         public string Deleted

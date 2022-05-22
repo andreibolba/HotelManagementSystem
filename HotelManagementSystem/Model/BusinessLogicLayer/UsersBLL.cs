@@ -42,6 +42,11 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
             userDAL.EditPerson(user);
         }
 
+        public void editPic(Users user)
+        {
+            userDAL.EditPic(user);
+        }
+
         public void deleteUser(Users user)
         {
             userDAL.DeletePerson(user);

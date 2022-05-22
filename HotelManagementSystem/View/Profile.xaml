@@ -30,7 +30,7 @@
                  Margin="0,40,0,0"
                  >
             <Ellipse.Fill>
-                <ImageBrush ImageSource="/Resources/basic.jpg"/>
+                <ImageBrush ImageSource="{Binding profileImageFromDB}"/>
             </Ellipse.Fill>
         </Ellipse>
 
@@ -50,8 +50,8 @@
 
         <Button Content="Log Out"
                 Grid.Row="1"
-                Height="50"
-                Width="120"
+                Height="30"
+                Width="70"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Left"
                 Margin="18,0,0,10"
@@ -66,6 +66,26 @@
                 </Style>
             </Button.Resources>
         </Button>
+
+        <Button Content="Add image"
+                Grid.Row="1"
+                Height="30"
+                Width="70"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Left"
+                Margin="98,0,0,10"
+                Background="Transparent"
+                BorderBrush="White"
+                Foreground="White"
+                FontFamily="Open Sans"
+                Command="{Binding AddPic}">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
         <Label Content="{Binding username}"
             FontFamily="Open Sans"
             FontSize="16"

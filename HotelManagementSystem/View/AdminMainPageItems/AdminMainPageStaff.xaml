@@ -32,7 +32,8 @@
             Width="480"
             ItemsSource="{Binding usersList}" 
             IsReadOnly="True" 
-            ScrollViewer.VerticalScrollBarVisibility="Hidden">
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            SelectedIndex="{Binding ID}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First name" Binding="{Binding FirstName}"/>
                 <DataGridTextColumn Header="Second name" Binding="{Binding SecondName}"/>

@@ -31,8 +31,10 @@ namespace HotelManagementSystem.ViewModel
         public string backButtonText { get; set; }
         public string signButtonText { get; set; }
         public static bool isEdited { get; set; } = false;
+        public static bool isAdmin { get; set; } = false;
 
         public static Users loggedUser { get; set; }
+        public static Users editedUser { get; set; }
 
         public SignUpVM()
         {
@@ -100,16 +102,22 @@ namespace HotelManagementSystem.ViewModel
         private ICommand m_signUp;
         public void logIn(object parameter)
         {
-            if (isEdited == false)
+            if (isEdited == false&&isAdmin==false)
             {
                 LogIn logIn = new LogIn();
                 logIn.Show();
                 Application.Current.Windows[0].Close();
                 return;
             }
-
-            Profile profile = new Profile(loggedUser);
-            profile.Show();
+            if (isAdmin == false)
+            {
+                Profile profile = new Profile(loggedUser);
+                profile.Show();
+                Application.Current.Windows[0].Close();
+                return;
+            }
+            AdminMainPage adminMainPage = new AdminMainPage(loggedUser);
+            adminMainPage.Show();
             Application.Current.Windows[0].Close();
         }
 
@@ -142,10 +150,18 @@ namespace HotelManagementSystem.ViewModel
                     newUser.Birthday = birthday;
                     newUser.Sex = sex;
                     newUser.Password = pass;
+                    newUser.Picture = Image.FromFile("J:\\FMI-AnII\\Semestrul_2\\MVP\\HotelManagementSystem\\HotelManagementSystem\\Resources\\basic.jpg");
                     userBLL.addUser(newUser);
                     MessageBox.Show("Your account has been added!");
-                    LogIn logIn = new LogIn();
-                    logIn.Show();
+                    if (isAdmin == false)
+                    {
+                        LogIn logIn = new LogIn();
+                        logIn.Show();
+                        Application.Current.Windows[0].Close();
+                        return;
+                    }
+                    AdminMainPage adminMainPage = new AdminMainPage(loggedUser);
+                    adminMainPage.Show();
                     Application.Current.Windows[0].Close();
                 }
                 catch (Exception ex)
@@ -154,6 +170,58 @@ namespace HotelManagementSystem.ViewModel
                 }
                 return;
             }
+            if (isAdmin == false)
+            {
+                if (isEditedFilled() == false)
+                {
+                    MessageBox.Show("Fill at least one!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(email) == false)
+                {
+                    Regex regexE = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+                    Match matchE = regexE.Match(email);
+                    if (matchE.Success == false)
+                    {
+                        MessageBox.Show("Incorect email format!");
+                        return;
+                    }
+                }
+
+                try
+                {
+                    if (string.IsNullOrEmpty(fName) == false)
+                        loggedUser.FirstName = fName;
+                    if (string.IsNullOrEmpty(lName) == false)
+                        loggedUser.SecondName = lName;
+                    if (string.IsNullOrEmpty(username) == false)
+                        loggedUser.Username = username;
+                    if (string.IsNullOrEmpty(email) == false)
+                        loggedUser.Email = email;
+                    if (string.IsNullOrEmpty(pass) == false)
+                        loggedUser.Password = pass;
+                    if (string.IsNullOrEmpty(phone) == false)
+                        loggedUser.Phone = phone;
+                    if (string.IsNullOrEmpty(sex) == false)
+                        loggedUser.Sex = sex;
+                    if (string.IsNullOrEmpty(address) == false)
+                        loggedUser.Address = address;
+                    if (birthday != null)
+                        loggedUser.Birthday = birthday;
+                    userBLL.editUser(loggedUser);
+                    MessageBox.Show("Your account has been edited!");
+                    Profile profile = new Profile(loggedUser);
+                    profile.Show();
+                    Application.Current.Windows[0].Close();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                return;
+            }
+
             if (isEditedFilled() == false)
             {
                 MessageBox.Show("Fill at least one!");
@@ -169,36 +237,38 @@ namespace HotelManagementSystem.ViewModel
                     return;
                 }
             }
+
             try
             {
                 if (string.IsNullOrEmpty(fName) == false)
-                    loggedUser.FirstName = fName;
+                    editedUser.FirstName = fName;
                 if (string.IsNullOrEmpty(lName) == false)
-                    loggedUser.SecondName = lName;
+                    editedUser.SecondName = lName;
                 if (string.IsNullOrEmpty(username) == false)
-                    loggedUser.Username = username;
+                    editedUser.Username = username;
                 if (string.IsNullOrEmpty(email) == false)
-                    loggedUser.Email = email;
+                    editedUser.Email = email;
                 if (string.IsNullOrEmpty(pass) == false)
-                    loggedUser.Password = pass;
+                    editedUser.Password = pass;
                 if (string.IsNullOrEmpty(phone) == false)
-                    loggedUser.Phone = phone;
+                    editedUser.Phone = phone;
                 if (string.IsNullOrEmpty(sex) == false)
-                    loggedUser.Sex = sex;
+                    editedUser.Sex = sex;
                 if (string.IsNullOrEmpty(address) == false)
-                    loggedUser.Address = address;
+                    editedUser.Address = address;
                 if (birthday != null)
-                    loggedUser.Birthday = birthday;
-                userBLL.editUser(loggedUser);
+                    editedUser.Birthday = birthday;
+                userBLL.editUser(editedUser);
                 MessageBox.Show("Your account has been edited!");
-                Profile profile = new Profile(loggedUser);
-                profile.Show();
+                AdminMainPage adminMainPage = new AdminMainPage(loggedUser);
+                adminMainPage.Show();
                 Application.Current.Windows[0].Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+
 
         }
 

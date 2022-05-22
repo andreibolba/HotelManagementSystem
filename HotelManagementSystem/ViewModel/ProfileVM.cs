@@ -3,11 +3,14 @@ using HotelManagementSystem.Model.EntityLayer;
 using HotelManagementSystem.View;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace HotelManagementSystem.ViewModel
 {
@@ -27,6 +30,8 @@ namespace HotelManagementSystem.ViewModel
         public string address { get; set; }
         public string fullName { get; set; }
         public string visible { get; set; }
+        public Image profileImageFromDB { get; set; }
+
 
         public ProfileVM()
         {
@@ -40,6 +45,8 @@ namespace HotelManagementSystem.ViewModel
             birthday = loggedUser.Birthday.ToString().Substring(0,9);
             address=loggedUser.Address;
             fullName=fName+"\n"+lName;
+            profileImageFromDB = loggedUser.Picture;
+
 
             string role = loggedUser.Email.Substring(loggedUser.Email.IndexOf("@") + 1);
             switch (role)
@@ -60,6 +67,7 @@ namespace HotelManagementSystem.ViewModel
         private ICommand m_back;
         private ICommand m_edit;
         private ICommand m_delete;
+        private ICommand m_addPic;
 
         public void delete(object parameter)
         {
@@ -71,7 +79,7 @@ namespace HotelManagementSystem.ViewModel
         {
             SignUp edit=new SignUp(loggedUser);
             edit.Show();
-            Application.Current.Windows[0].Close();
+            System.Windows.Application.Current.Windows[0].Close();
         }
 
         public void back(object parameter)
@@ -92,14 +100,35 @@ namespace HotelManagementSystem.ViewModel
                     clientMain.Show();
                     break;
             }
-            Application.Current.Windows[0].Close();
+            System.Windows.Application.Current.Windows[0].Close();
         }
 
         public void logOut(object parameter)
         {
             LogIn logIn = new LogIn();
             logIn.Show();
-            Application.Current.Windows[0].Close();
+            System.Windows.Application.Current.Windows[0].Close();
+        }
+
+        public void addPic(object parameter)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.InitialDirectory = "c:\\";
+            dlg.Filter = "Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
+            dlg.RestoreDirectory = true;
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string selectedFileName = dlg.FileName;
+
+                Image image1 = Image.FromFile(selectedFileName);
+                profileImageFromDB = image1;
+                loggedUser.Picture = image1;
+                userBLL.editPic(loggedUser);
+                OnPropertyChanged("profileImage");
+                OnPropertyChanged("profileImageVisibility");
+                OnPropertyChanged("profileImageFromDBVisibility");
+            }
         }
 
         public ICommand LogOut
@@ -139,6 +168,16 @@ namespace HotelManagementSystem.ViewModel
                 if(m_delete==null)
                     m_delete=new RelayCommand(delete);
                 return m_delete;
+            }
+        }
+
+        public ICommand AddPic
+        {
+            get
+            {
+                if (m_addPic == null)
+                    m_addPic = new RelayCommand(addPic);
+                return m_addPic;
             }
         }
     }

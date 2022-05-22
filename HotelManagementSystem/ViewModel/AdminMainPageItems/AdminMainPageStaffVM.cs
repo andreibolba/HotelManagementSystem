@@ -1,11 +1,13 @@
 ﻿using HotelManagementSystem.Model.BusinessLogicLayer;
 using HotelManagementSystem.Model.EntityLayer;
+using HotelManagementSystem.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace HotelManagementSystem.ViewModel.AdminMainPageItems
@@ -22,36 +24,36 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
 
         public AdminMainPageStaffVM()
         {
+            ID = 1;
             usersList = usersBLL.GetAllStaff();
         }
 
         private void add(object parameter)
         {
-            //AddServices add = new AddServices(loggedUser, "Add service");
-            //add.Show();
-            //Application.Current.Windows[0].Close();
+            SignUp signUp = new SignUp(loggedUser,true,false);
+            signUp.Show();
+            Application.Current.Windows[0].Close();
         }
 
         private void edit(object parameter)
         {
-            //try
-            //{
-            //    AddServices edit = new AddServices(loggedUser, "Edit services", servicesList[ID].Id, servicesList[ID]);
-            //    edit.Show();
-            //    Application.Current.Windows[0].Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("No element to edit!");
-            //}
+            try
+            {
+                SignUp signUp = new SignUp(loggedUser, usersList[ID],true);
+                signUp.Show();
+                Application.Current.Windows[0].Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No user to edit!");
+            }
         }
 
         private void delete(object parameter)
         {
-            //offersBLL.deleteService(servicesList[ID]);
-            //MessageBox.Show("User deleted succesfully!");
-            //servicesList.Remove(servicesList[ID]);
-            //services.Remove(services[ID]);
+            usersBLL.deleteUser(usersList[ID]);
+            MessageBox.Show("User deleted succesfully!");
+            usersList.Remove(usersList[ID]);
         }
 
         public ICommand Add

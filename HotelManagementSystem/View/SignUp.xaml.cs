@@ -27,10 +27,35 @@ namespace HotelManagementSystem.View
             InitializeComponent();
         }
 
+        public SignUp(Users loggedUser,bool isAdmin,bool isEdited)
+        {
+            SignUpVM.loggedUser = loggedUser;
+            SignUpVM.isEdited = isEdited;
+            SignUpVM.isAdmin = isAdmin;
+            MessageBox.Show(isAdmin.ToString());
+            InitializeComponent();
+        }
+
         public SignUp(Users loggedUser)
         {
             SignUpVM.loggedUser = loggedUser;
             SignUpVM.isEdited = true;
+            InitializeComponent();
+        }
+        public SignUp(Users loggedUser,bool isAdmin)
+        {
+            SignUpVM.loggedUser = loggedUser;
+            SignUpVM.isEdited = true;
+            SignUpVM.isAdmin = isAdmin;
+            InitializeComponent();
+        }
+
+        public SignUp(Users loggedUser,Users editedUser, bool isAdmin)
+        {
+            SignUpVM.loggedUser = loggedUser;
+            SignUpVM.editedUser=editedUser;
+            SignUpVM.isEdited = true;
+            SignUpVM.isAdmin = isAdmin;
             InitializeComponent();
         }
     }

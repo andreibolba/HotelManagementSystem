@@ -33,7 +33,7 @@ namespace HotelManagementSystem.ViewModel
             adminMainPageClients=new AdminMainPageClients();
             adminMainPageFeature=new AdminMainPageFeature(loggedUser);
             adminMainPageServices=new AdminMainPageServices(loggedUser);
-            adminMainPageStaff = new AdminMainPageStaff();
+            adminMainPageStaff = new AdminMainPageStaff(loggedUser);
             adminMainPageOffers=new AdminMainPageOffers();
         }
 

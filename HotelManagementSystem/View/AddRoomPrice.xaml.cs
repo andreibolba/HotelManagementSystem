@@ -24,6 +24,7 @@ namespace HotelManagementSystem.View
         public AddRoomPrice(Users loggedUser)
         {
             AddRoomPriceVM.loggedUser = loggedUser;
+            AddRoomPriceVM.isEdited = false;
             InitializeComponent();
         }
 

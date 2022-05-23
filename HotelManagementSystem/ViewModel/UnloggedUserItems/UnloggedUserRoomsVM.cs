@@ -35,7 +35,7 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
                 foreach (Feature feature in rooms[id].Features)
                     features.Add(feature.Name);
                 foreach (Price price in rooms[id].Prices)
-                    prices.Add(price.RoomPrice + " de la " + price.StartDate.ToString().Substring(0,8) + " -> " + price.EndDate.ToString().Substring(0, 8));
+                    prices.Add(price.RoomPrice + " de la " + price.StartDate.ToString().Substring(0,9) + " -> " + price.EndDate.ToString().Substring(0, 9));
                 if (id == 0)
                 {
                     prevButton = "Hidden";
@@ -76,7 +76,7 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
             foreach (Feature feature in rooms[id].Features)
                 features.Add(feature.Name);
             foreach (Price price in rooms[id].Prices)
-                prices.Add(price.RoomPrice + " de la " + price.StartDate.ToString().Substring(0, 8) + " -> " + price.EndDate.ToString().Substring(0, 8));
+                prices.Add(price.RoomPrice + " de la " + price.StartDate.ToString().Substring(0, 9) + " -> " + price.EndDate.ToString().Substring(0, 9));
             OnPropertyChanged("roomName");
             OnPropertyChanged("roomNumber");
             OnPropertyChanged("features");

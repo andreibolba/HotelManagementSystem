@@ -204,6 +204,10 @@
     <Compile Include="Model\EntityLayer\Services.cs" />
     <Compile Include="Model\EntityLayer\Users.cs" />
     <Compile Include="Tools\Tools.cs" />
+    <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserOfferVM.cs" />
+    <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserRoomsVM.cs" />
+    <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserServicesVM.cs" />
+    <Compile Include="ViewModel\UnLoggedUserVM.cs" />
     <Compile Include="View\AddRoom.xaml.cs">
       <DependentUpon>AddRoom.xaml</DependentUpon>
     </Compile>
@@ -272,6 +276,18 @@
     </Compile>
     <Compile Include="View\StaffMainPage.xaml.cs">
       <DependentUpon>StaffMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnLoggedUser.xaml.cs">
+      <DependentUpon>UnLoggedUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnloggedUserItems\UnloggedUserOffers.xaml.cs">
+      <DependentUpon>UnloggedUserOffers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnloggedUserItems\UnloggedUserRooms.xaml.cs">
+      <DependentUpon>UnloggedUserRooms.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnloggedUserItems\UnloggedUserServices.xaml.cs">
+      <DependentUpon>UnloggedUserServices.xaml</DependentUpon>
     </Compile>
     <Page Include="Theme\MenuButtonTheme.xaml">
       <SubType>Designer</SubType>
@@ -345,6 +361,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\UnLoggedUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UnloggedUserItems\UnloggedUserOffers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UnloggedUserItems\UnloggedUserRooms.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UnloggedUserItems\UnloggedUserServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -393,6 +425,7 @@
     <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.VisualBasic.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\build\Microsoft.VisualStudio.Threading.Analyzers.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\build\Microsoft.VisualStudio.Threading.Analyzers.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

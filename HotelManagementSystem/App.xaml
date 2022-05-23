@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:HotelManagementSystem"
              xmlns:viewModel="clr-namespace:HotelManagementSystem.ViewModel.AdminMainPageItems"
+             xmlns:viewModelUnloged="clr-namespace:HotelManagementSystem.ViewModel.UnloggedUserItems"
              xmlns:view="clr-namespace:HotelManagementSystem.View.AdminMainPageItems"
-             StartupUri="./View/LogIn.xaml">
+             xmlns:viewUnlogged="clr-namespace:HotelManagementSystem.View.UnloggedUserItems"
+             StartupUri="./View/UnLoggedUser.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -31,6 +33,16 @@
                 <view:AdminMainPageOffers/>
             </DataTemplate>
 
+
+            <DataTemplate DataType="{x:Type viewModelUnloged:UnloggedUserRoomsVM}">
+                <viewUnlogged:UnloggedUserRooms/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModelUnloged:UnloggedUserOfferVM}">
+                <viewUnlogged:UnloggedUserOffers/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModelUnloged:UnloggedUserServicesVM}">
+                <viewUnlogged:UnloggedUserServices/>
+            </DataTemplate>
 
         </ResourceDictionary>
     </Application.Resources>

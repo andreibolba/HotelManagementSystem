@@ -17,11 +17,19 @@ namespace HotelManagementSystem.ViewModel
 
         private ICommand m_signUp;
         private ICommand m_logIn;
+        private ICommand m_back;
 
         public void signUp(object parameter)
         {
             SignUp signUp = new SignUp();
             signUp.Show();
+            Application.Current.Windows[0].Close();
+        }
+
+        public void back(object parameter)
+        {
+            UnLoggedUserServices unLoggedUser = new UnLoggedUserServices();
+            unLoggedUser.Show();
             Application.Current.Windows[0].Close();
         }
 
@@ -74,6 +82,16 @@ namespace HotelManagementSystem.ViewModel
                 if (m_logIn == null)
                     m_logIn = new RelayCommand(logIn);
                 return m_logIn;
+            }
+        }
+
+        public ICommand Back
+        {
+            get
+            {
+                if (m_back == null)
+                    m_back = new RelayCommand(back);
+                return m_back;
             }
         }
     }

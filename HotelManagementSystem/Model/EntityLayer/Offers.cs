@@ -10,11 +10,11 @@ namespace HotelManagementSystem.Model.EntityLayer
     {
         private int id;
         private string name;
-        private int room_id;
-        private int period;
+        private string roomName;
         private DateTime startDate;
         private DateTime endDate;
         private int price;
+        private int roomID;
         private string deleted;
 
         public int Id
@@ -29,16 +29,10 @@ namespace HotelManagementSystem.Model.EntityLayer
             set { name = value; }
         }
 
-        public int Room_Id
+        public string RoomName
         {
-            get { return room_id; }
-            set { room_id = value; }
-        }
-
-        public int Period
-        {
-            get { return period; }
-            set { period = value; }
+            get { return roomName; }
+            set { roomName = value; }
         }
 
         public DateTime StartDate
@@ -63,6 +57,12 @@ namespace HotelManagementSystem.Model.EntityLayer
         {
             get { return deleted; }
             set { deleted = value; }
+        }
+
+        public int RoomId
+        {
+            get { return roomID; }
+            set { roomID = value; }
         }
     }
 }

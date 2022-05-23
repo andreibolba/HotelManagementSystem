@@ -27,7 +27,7 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
             offersList = offersBLL.getOffers();
             offers = new ObservableCollection<string>();
             foreach (Offers offer in offersList)
-                offers.Add(offer.Name+"-"+offer.Period+"zile("+offer.Price.ToString()+" Lei) perioada"+offer.StartDate+" - "+offer.EndDate);
+                offers.Add(offer.Name+"-"+offer.RoomName+"("+offer.Price.ToString()+" Lei) perioada"+offer.StartDate+" - "+offer.EndDate);
         }
 
         private void add(object parameter)

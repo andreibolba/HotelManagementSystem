@@ -17,7 +17,7 @@ namespace HotelManagementSystem.Model.DataAccessLayer
             SqlConnection con = DALHelper.Connection;
             try
             {
-                SqlCommand cmd = new SqlCommand("GetAllOffers", con);
+                SqlCommand cmd = new SqlCommand("GetAllOffer", con);
                 ObservableCollection<Offers> result = new ObservableCollection<Offers>();
                 cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();
@@ -27,12 +27,10 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                     Offers offer = new Offers();
                     offer.Id = reader.GetInt32(0);
                     offer.Name = reader.GetString(1);
-                    offer.Room_Id = reader.GetInt32(2);
-                    offer.Period= reader.GetInt32(3);
-                    offer.StartDate= reader.GetDateTime(4);
-                    offer.EndDate= reader.GetDateTime(5);
-                    offer.Price=reader.GetInt32(6);
-                    offer.Deleted=reader.GetString(7);
+                    offer.RoomName = reader.GetString(2);
+                    offer.StartDate= reader.GetDateTime(3);
+                    offer.EndDate= reader.GetDateTime(4);
+                    offer.Price=reader.GetInt32(5);
                     result.Add(offer);
                 }
                 reader.Close();
@@ -41,6 +39,27 @@ namespace HotelManagementSystem.Model.DataAccessLayer
             finally
             {
                 con.Close();
+            }
+        }
+
+        public void AddOffer(Offers offers)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("AddOffer", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter name = new SqlParameter("@name", offers.Name);
+                SqlParameter roomId = new SqlParameter("@roomID", offers.RoomId);
+                SqlParameter startDate = new SqlParameter("@startDate", offers.StartDate);
+                SqlParameter endDate = new SqlParameter("@endDate", offers.EndDate);
+                SqlParameter price = new SqlParameter("@price", offers.Price);
+                cmd.Parameters.Add(name);
+                cmd.Parameters.Add(roomId);
+                cmd.Parameters.Add(startDate);
+                cmd.Parameters.Add(endDate);
+                cmd.Parameters.Add(price);
+                con.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }

@@ -25,5 +25,12 @@ namespace HotelManagementSystem.ViewModel
             AddRoomVM.loggedUser = loggedUser;
             InitializeComponent();
         }
+
+        public AddRoom(Users loggedUser,bool isEdited)
+        {
+            AddRoomVM.loggedUser = loggedUser;
+            AddRoomVM.isEdited = isEdited;
+            InitializeComponent();
+        }
     }
 }

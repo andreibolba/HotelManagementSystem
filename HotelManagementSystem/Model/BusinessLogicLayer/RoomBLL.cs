@@ -11,16 +11,26 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
 {
      class RoomBLL
     {
-        RoomDAL roomDal = new RoomDAL();
+        RoomDAL roomDAL = new RoomDAL();
 
         public void addRoom(Room room)
         {
-            roomDal.AddRoom(room);
+            roomDAL.AddRoom(room);
         }
 
         public ObservableCollection<Room> getAllRooms()
         {
-            return roomDal.getAllRooms();
+            return roomDAL.getAllRooms();
+        }
+
+        public void deleteRoom(Room room)
+        {
+            roomDAL.DeletRoom(room);
+        }
+
+        public void editRoom(Room room)
+        {
+            roomDAL.EditRoom(room);
         }
     }
 }

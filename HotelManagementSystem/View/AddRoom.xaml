@@ -17,7 +17,7 @@
         <vm:AddRoomVM/>
     </Window.DataContext>
     <Grid Background="#272537">
-        <Label Content="Add Room"
+        <Label Content="{Binding title}"
                VerticalAlignment="Top"
                HorizontalAlignment="Center"
                Margin="0,25,0,0"
@@ -50,7 +50,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Add"
+        <Button Content="{Binding btnTitle}"
             Height="47"
             Width="120"
             VerticalAlignment="Bottom"
@@ -74,7 +74,8 @@
             Margin="211,110,0,0" 
             VerticalAlignment="Top" Width="141" IsReadOnly="True"
             SelectedIndex="{Binding IDO}"
-            SelectedItem="{Binding name}">
+            SelectedItem="{Binding name}"
+            Visibility="{Binding visibilityCombo}">
             <ComboBoxItem Content="Single Room"></ComboBoxItem>
             <ComboBoxItem Content="Double Room"></ComboBoxItem>
             <ComboBoxItem Content="Villa"></ComboBoxItem>
@@ -176,6 +177,14 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label Content="{Binding roomType}"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="164,102,0,0"
+            Foreground="White"
+            FontSize="20" Width="162" RenderTransformOrigin="0.371,0.405"
+               Visibility="{Binding visibilityLabel}"
+             />
 
 
 

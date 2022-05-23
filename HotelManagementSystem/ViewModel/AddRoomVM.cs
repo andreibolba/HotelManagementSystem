@@ -28,6 +28,8 @@ namespace HotelManagementSystem.ViewModel
         private ICommand m_back;
         private ICommand m_add;
 
+        public static Room editedRoom { get; set; }
+        public static bool isEdited { get; set; }
 
         public ObservableCollection<Feature> features { get; set; }
         public ObservableCollection<Feature> selectedFeatures { get; set; }
@@ -37,16 +39,56 @@ namespace HotelManagementSystem.ViewModel
         public ComboBoxItem name { get; set; }
         public string number { get; set; }
 
+        public string visibilityCombo { get; set; }
+        public string visibilityLabel { get; set; }
+        public string title { get; set; }
+        public string btnTitle { get; set; }
+        public string roomType { get; set; }
         public AddRoomVM()
         {
+            selectedFeatures = new ObservableCollection<Feature>();
+            features = new ObservableCollection<Feature>();
+            selectedFeaturesList = new ObservableCollection<string>();
+            featuresList = new ObservableCollection<string>();
             ID = -1;
             IDO = -1;
             features = featureBLL.getAllFeatures();
-            selectedFeatures = new ObservableCollection<Feature>();
-            selectedFeaturesList = new ObservableCollection<string>();
-            featuresList = new ObservableCollection<string>();
+            if (isEdited == false)
+            {
+                visibilityCombo = "Visible";
+                visibilityLabel = "Hidden";
+                title = "Add room";
+                btnTitle = "Add";
+                featuresList = new ObservableCollection<string>();
+                foreach (Feature feature in features)
+                    featuresList.Add(feature.Name);
+                return;
+            }
+            selectedFeatures = editedRoom.Features;
+            foreach (Feature feature in selectedFeatures)
+                selectedFeaturesList.Add(feature.Name);
+            ObservableCollection<Feature> goodFeature = new ObservableCollection<Feature>();
+            foreach (Feature feature in features)
+            {
+                bool ok = true;
+                foreach(Feature selFeature in selectedFeatures)
+                    if(feature.Id == selFeature.Id)
+                    {
+                        ok = false;
+                        break;
+                    }
+                if(ok)
+                    goodFeature.Add(feature);
+            }
+            features = goodFeature;
             foreach (Feature feature in features)
                 featuresList.Add(feature.Name);
+            visibilityLabel = "Visible";
+            visibilityCombo = "Hidden";
+            roomType = editedRoom.Name;
+            number = editedRoom.Number.ToString();
+            title = "Edit room";
+            btnTitle = "Edit";
         }
 
         private void chooseFeature(object parameter)
@@ -86,25 +128,41 @@ namespace HotelManagementSystem.ViewModel
         }
         private void add(object parameter)
         {
-            if (IDO == -1 && string.IsNullOrEmpty(number))
+            if (isEdited == false)
             {
-                MessageBox.Show("Fill al spaces");
+                if (IDO == -1 && string.IsNullOrEmpty(number))
+                {
+                    MessageBox.Show("Fill al spaces");
+                    return;
+                }
+                if (hasLetters(number) == false)
+                {
+                    Model.EntityLayer.Room room = new Model.EntityLayer.Room();
+                    room.Name = name.Content.ToString();
+                    room.Features = selectedFeatures;
+                    room.Number = int.Parse(number);
+                    roomBLL.addRoom(room);
+                    MessageBox.Show("Room added succesfully!");
+                    AdminMainPage adminMainPage = new AdminMainPage(loggedUser);
+                    adminMainPage.Show();
+                    Application.Current.Windows[0].Close();
+                    return;
+                }
+                MessageBox.Show("Number has letters");
                 return;
             }
             if (hasLetters(number) == false)
             {
                 Model.EntityLayer.Room room = new Model.EntityLayer.Room();
-                room.Name = name.Content.ToString();
                 room.Features = selectedFeatures;
                 room.Number = int.Parse(number);
-                roomBLL.addRoom(room);
-                MessageBox.Show("Room added succesfully!");
+                room.Id = editedRoom.Id;
+                roomBLL.editRoom(room);
+                MessageBox.Show("Room updated succesfully!");
                 AdminMainPage adminMainPage = new AdminMainPage(loggedUser);
                 adminMainPage.Show();
                 Application.Current.Windows[0].Close();
-                return;
             }
-            MessageBox.Show("Number has letters");
         }
 
         public ICommand Choose

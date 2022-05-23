@@ -71,7 +71,7 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                     Room room = new Room();
                     room.Id = reader.GetInt32(0);
                     room.Name = reader.GetString(1);
-                    room.Number=reader.GetInt32(2);
+                    room.Number = reader.GetInt32(2);
                     rooms.Add(room);
                 }
                 reader.Close();
@@ -103,7 +103,7 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                 room.Features = features;
             }
 
-            foreach(Room room in rooms)
+            foreach (Room room in rooms)
             {
                 ObservableCollection<Price> prices = new ObservableCollection<Price>();
                 using (SqlConnection con = DALHelper.Connection)
@@ -117,9 +117,9 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                     while (reader.Read())
                     {
                         Price price = new Price();
-                        price.Id= reader.GetInt32(0);
-                        price.StartDate=reader.GetDateTime(1);
-                        price.EndDate=reader.GetDateTime(2);
+                        price.Id = reader.GetInt32(0);
+                        price.StartDate = reader.GetDateTime(1);
+                        price.EndDate = reader.GetDateTime(2);
                         price.RoomPrice = reader.GetInt32(3);
                         prices.Add(price);
                     }
@@ -129,6 +129,53 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                 room.Prices = prices;
             }
             return rooms;
+        }
+
+        public void DeletRoom(Room room)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("DeleteRoom", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter id = new SqlParameter("@roomID", room.Id);
+                cmd.Parameters.Add(id);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+
+        }
+
+        public void EditRoom(Room room)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("UpdateRoom", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter id = new SqlParameter("@roomID", room.Id);
+                SqlParameter number = new SqlParameter("@number", room.Number);
+                cmd.Parameters.Add(id);
+                cmd.Parameters.Add(number);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                foreach (Feature feature in room.Features)
+                {
+                    SqlCommand cmd = new SqlCommand("AddRoomFeature", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlParameter name = new SqlParameter("@id_feature", feature.Id);
+                    SqlParameter numbers = new SqlParameter("@id_room", room.Id);
+                    cmd.Parameters.Add(name);
+                    cmd.Parameters.Add(numbers);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
         }
     }
 }

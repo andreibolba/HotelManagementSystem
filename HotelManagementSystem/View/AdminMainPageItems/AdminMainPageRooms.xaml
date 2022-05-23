@@ -71,7 +71,7 @@
                 FontSize="12" 
                 FontFamily="Open Sans" 
                 Height="32"
-                Command="" Width="100"
+                Command="{Binding Edit}" Width="100"
                 Margin="342,275,72,16"
             >
             <Button.Background>
@@ -95,8 +95,9 @@
                 FontSize="12" 
                 FontFamily="Open Sans" 
                 Height="32"
-                Command="" Width="100"
+                Width="100"
                 Margin="223,275,190,16"
+                Command="{Binding Delete}"
             >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

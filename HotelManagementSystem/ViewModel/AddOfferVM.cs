@@ -96,7 +96,7 @@ namespace HotelManagementSystem.ViewModel
             newOffer.EndDate = endDate;
             newOffer.RoomId = rooms[ID].Id;
             offersBLL.editOffer(newOffer);
-            MessageBox.Show("Offer updated succesfully");
+            MessageBox.Show("Offer updated succesfully!");
         }
 
         public ICommand Back

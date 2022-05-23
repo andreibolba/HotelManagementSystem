@@ -20,7 +20,7 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
             offersList = offersBLL.getOffers();
             offers = new ObservableCollection<string>();
             foreach (Offers offer in offersList)
-                offers.Add(offer.Name + "-" + offer.RoomName + "(" + offer.Price.ToString() + " Lei in perioada:" + offer.StartDate + " - " + offer.EndDate+")");
+                offers.Add(offer.Name + "-" + offer.RoomName + "(" + offer.Price.ToString() + " Lei in perioada:" + offer.StartDate.ToString().Substring(0, 9) + " -> " + offer.EndDate.ToString().Substring(0, 9) + ")");
         }
     }
 }

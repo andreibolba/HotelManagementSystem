@@ -206,11 +206,15 @@
     <Compile Include="Model\EntityLayer\Services.cs" />
     <Compile Include="Model\EntityLayer\Users.cs" />
     <Compile Include="Tools\Tools.cs" />
+    <Compile Include="ViewModel\AddOfferVM.cs" />
     <Compile Include="ViewModel\AddRoomPriceVM.cs" />
     <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserOfferVM.cs" />
     <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserRoomsVM.cs" />
     <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserServicesVM.cs" />
     <Compile Include="ViewModel\UnLoggedUserVM.cs" />
+    <Compile Include="View\AddOffer.xaml.cs">
+      <DependentUpon>AddOffer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddRoom.xaml.cs">
       <DependentUpon>AddRoom.xaml</DependentUpon>
     </Compile>
@@ -297,6 +301,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Theme\SearchBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddOffer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

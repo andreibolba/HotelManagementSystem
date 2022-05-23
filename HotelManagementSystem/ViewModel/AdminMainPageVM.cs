@@ -34,7 +34,7 @@ namespace HotelManagementSystem.ViewModel
             adminMainPageFeature=new AdminMainPageFeature(loggedUser);
             adminMainPageServices=new AdminMainPageServices(loggedUser);
             adminMainPageStaff = new AdminMainPageStaff(loggedUser);
-            adminMainPageOffers=new AdminMainPageOffers();
+            adminMainPageOffers=new AdminMainPageOffers(loggedUser);
         }
 
 

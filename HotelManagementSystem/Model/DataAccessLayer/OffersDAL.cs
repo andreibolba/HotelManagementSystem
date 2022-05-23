@@ -62,5 +62,41 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void DeleteOffer(Offers offers)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("DeleteOffer", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter id = new SqlParameter("@offerID", offers.Id);
+                cmd.Parameters.Add(id);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void editOffer(Offers offers)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("UpdateOffer", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter id = new SqlParameter("@offerId", offers.Id);
+                SqlParameter name = new SqlParameter("@name", offers.Name);
+                SqlParameter roomId = new SqlParameter("@id_room", offers.RoomId);
+                SqlParameter start = new SqlParameter("@startDate", offers.StartDate);
+                SqlParameter end = new SqlParameter("@endDate", offers.EndDate);
+                SqlParameter price = new SqlParameter("@price", offers.Price);
+                cmd.Parameters.Add(id);
+                cmd.Parameters.Add(name);
+                cmd.Parameters.Add(roomId);
+                cmd.Parameters.Add(start);
+                cmd.Parameters.Add(end);
+                cmd.Parameters.Add(price);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

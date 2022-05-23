@@ -17,6 +17,7 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
         public ObservableCollection<string> offers { get; set; }
         public int ID { get; set; }
         private ObservableCollection<Offers> offersList { get; set; }
+        private Offers currentOffer;
         public static Users loggedUser { get; set; }
         private ICommand m_add;
         private ICommand m_edit;
@@ -24,38 +25,40 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
 
         public AdminMainPageOfferVM()
         {
+            ID = 0;
             offersList = offersBLL.getOffers();
             offers = new ObservableCollection<string>();
             foreach (Offers offer in offersList)
-                offers.Add(offer.Name+"-"+offer.RoomName+"("+offer.Price.ToString()+" Lei) perioada"+offer.StartDate+" - "+offer.EndDate);
+                offers.Add(offer.Name+"-"+offer.RoomName+"("+offer.Price.ToString()+" Lei) perioada "+offer.StartDate.ToString().Substring(0,9)+" -> "+offer.EndDate.ToString().Substring(0, 9));
         }
 
         private void add(object parameter)
         {
-            AddServices add = new AddServices(loggedUser, "Add service");
-            add.Show();
+            
+            View.AddOffer addOffer = new View.AddOffer(loggedUser);
+            addOffer.Show();
             Application.Current.Windows[0].Close();
         }
 
         private void edit(object parameter)
         {
-            /*try
+            try
             {
-                AddServices edit = new AddServices(loggedUser, "Edit services", servicesList[ID].Id,servicesList[ID]);
-                edit.Show();
+                View.AddOffer editOffer = new View.AddOffer(loggedUser, offersList[ID], true);
+                editOffer.Show();
                 Application.Current.Windows[0].Close();
             }catch (Exception ex)
             {
                 MessageBox.Show("No element to edit!");
-            }*/
+            }
         }
 
         private void delete(object parameter)
         {
-            /*offersBLL.deleteService(servicesList[ID]);
-            MessageBox.Show("User deleted succesfully!");
-            servicesList.Remove(servicesList[ID]);
-            services.Remove(services[ID]);*/
+            offersBLL.deleteOffer(offersList[ID]);
+            MessageBox.Show("Offer deleted succesfully!");
+            offersList.Remove(offersList[ID]);
+            offers.Remove(offers[ID]);
         }
 
         public ICommand Add

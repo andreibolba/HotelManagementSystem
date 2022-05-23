@@ -1,6 +1,5 @@
 ﻿using HotelManagementSystem.Model.EntityLayer;
 using HotelManagementSystem.ViewModel;
-using HotelManagementSystem.ViewModel.AdminMainPageItems;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +12,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HotelManagementSystem.View.AdminMainPageItems
+namespace HotelManagementSystem.View
 {
     /// <summary>
-    /// Interaction logic for AdminMainPageOffers.xaml
+    /// Interaction logic for AddOffer.xaml
     /// </summary>
-    public partial class AdminMainPageOffers : UserControl
+    public partial class AddOffer : Window
     {
-        public AdminMainPageOffers(Users loggedUser)
+        public AddOffer(Users loggedUser)
         {
-            AdminMainPageOfferVM.loggedUser= loggedUser;
+            AddOfferVM.loggedUser= loggedUser;
+            InitializeComponent();
+        }
+
+        public AddOffer(Users loggedUser,Offers offers,bool isEdited)
+        {
+            AddOfferVM.loggedUser = loggedUser;
+            AddOfferVM.offer= offers;
+            AddOfferVM.isEdited= isEdited;
             InitializeComponent();
         }
     }

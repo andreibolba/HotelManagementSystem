@@ -17,5 +17,20 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
         {
             return offersDAL.GetAllOffers();
         }
+
+        public void addOffer(Offers offer)
+        {
+            offersDAL.AddOffer(offer);
+        }
+
+        public void deleteOffer(Offers offer)
+        {
+            offersDAL.DeleteOffer(offer);
+        }
+
+        public void editOffer(Offers offer)
+        {
+            offersDAL.editOffer(offer);
+        }
     }
 }

@@ -93,7 +93,7 @@
             x:Name="emailTB" 
             HorizontalAlignment="Left" 
             Height="29" 
-            Margin="536,120,0,0"  
+            Margin="536,110,0,0"  
             VerticalAlignment="Top" 
             Width="127"
             BorderBrush="#7FFFFFFF" 

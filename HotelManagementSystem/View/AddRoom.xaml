@@ -1,0 +1,183 @@
+﻿<Window x:Class="HotelManagementSystem.ViewModel.AddRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelManagementSystem.View"
+        xmlns:vm="clr-namespace:HotelManagementSystem.ViewModel"
+        mc:Ignorable="d"
+        Title="LogIn" 
+        Height="418" 
+        Width="733.5"
+        ResizeMode="NoResize" 
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <vm:AddRoomVM/>
+    </Window.DataContext>
+    <Grid Background="#272537">
+        <Label Content="Add Room"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"
+               Margin="0,25,0,0"
+               Foreground="White"
+               FontSize="20"
+               />
+
+        <Label Content="Room name:"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Left"
+               Margin="26,102,0,0"
+               Foreground="White"
+               FontSize="20"
+               />
+        <Button Content="Back"
+            Height="50"
+            Width="120"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Margin="150,0,0,10"
+            Background="Transparent"
+            BorderBrush="White"
+            Foreground="White"
+            FontFamily="Open Sans"
+            FontSize="15"
+            Command="{Binding Back}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Add"
+            Height="50"
+            Width="120"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Center"
+            Margin="-150,0,0,10"
+            Background="Transparent"
+            BorderBrush="White"
+            Foreground="White"
+            FontFamily="Open Sans"
+            FontSize="15"
+            Visibility="{Binding visible}"
+            Command="{Binding Add}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <ComboBox 
+            HorizontalAlignment="Left" 
+            Margin="211,110,0,0" 
+            VerticalAlignment="Top" Width="141" IsReadOnly="True"
+            SelectedIndex="{Binding IDO}"
+            SelectedItem="{Binding name}">
+            <ComboBoxItem Content="Single Room"></ComboBoxItem>
+            <ComboBoxItem Content="Double Room"></ComboBoxItem>
+            <ComboBoxItem Content="Villa"></ComboBoxItem>
+            <ComboBoxItem Content="Apartament cu 2 camere"></ComboBoxItem>
+            <ComboBoxItem Content="Apartament cu  camere"></ComboBoxItem>
+            <ComboBoxItem Content="Penthhouse"></ComboBoxItem>
+        </ComboBox>
+        <Label Content="Room numbers:"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="374,102,0,0"
+            Foreground="White"
+            FontSize="20" Width="162"
+             />
+        <TextBox 
+            x:Name="emailTB" 
+            HorizontalAlignment="Left" 
+            Height="30" 
+            Margin="536,102,0,0"  
+            VerticalAlignment="Top" 
+            Width="127"
+            BorderBrush="#7FFFFFFF" 
+            FontFamily="Open Sans" 
+            Foreground="White"
+            CaretBrush="White"
+            FontSize="21"
+            BorderThickness="0,0,0,1"
+            Background="Transparent"
+            Text="{Binding number}"/>
+        <ListView
+            Width="300"
+            Background="#272537"
+            Foreground="White"
+            SelectedIndex="{Binding ID}"
+            ItemsSource="{Binding featuresList}"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            Margin="47,217,386,71" 
+            
+                  />
+        <ListView
+            Width="300"
+            Background="#272537"
+            Foreground="White"
+            SelectedIndex="{Binding ID}"
+            ItemsSource="{Binding selectedFeaturesList}"
+            ScrollViewer.VerticalScrollBarVisibility="Hidden"
+            Margin="388,217,46,71"
+            
+                  />
+        <Label Content="All features:"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="47,172,0,0"
+            Foreground="White"
+            FontSize="20"
+               />
+        <Label Content="Selected feature:"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="395,175,0,0"
+            Foreground="White"
+            FontSize="20" Width="162"
+               />
+        <Button Content="Add"
+            Height="17"
+            Width="39"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
+            Margin="349,0,0,150"
+            Background="Transparent"
+            BorderBrush="White"
+            Foreground="White"
+            FontFamily="Open Sans"
+            FontSize="8"
+            Visibility="{Binding visible}"
+            Command="{Binding Choose}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Remove"
+            Height="17"
+            Width="39"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Left"
+            Margin="349,0,0,122"
+            Background="Transparent"
+            BorderBrush="White"
+            Foreground="White"
+            FontFamily="Open Sans"
+            FontSize="8"
+            Visibility="{Binding visible}"
+            Command="{Binding Delete}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+
+    </Grid>
+</Window>

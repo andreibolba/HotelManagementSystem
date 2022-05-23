@@ -28,7 +28,7 @@ namespace HotelManagementSystem.ViewModel
         {
             helloText = "Hello, " + loggedUser.Username;
             OnPropertyChanged("helloText");
-            adminMainPageRooms=new AdminMainPageRooms();
+            adminMainPageRooms=new AdminMainPageRooms(loggedUser);
             CurrentView = adminMainPageRooms;
             adminMainPageClients=new AdminMainPageClients();
             adminMainPageFeature=new AdminMainPageFeature(loggedUser);

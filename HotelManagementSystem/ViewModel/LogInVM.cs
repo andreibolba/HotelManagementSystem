@@ -11,16 +11,6 @@ namespace HotelManagementSystem.ViewModel
 
         Users loggedUser=new Users();
         UsersBLL userBLL = new UsersBLL();
-        /*public LogInVM()
-        {
-            UsersList = userBLL.GetAllPersons();
-        }
-
-        public ObservableCollection<Users> UsersList
-        {
-            get => userBLL.UsersList;
-            set => userBLL.UsersList = value;
-        }*/
 
         public string email { get; set; }
         public string password { get; set; }

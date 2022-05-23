@@ -32,7 +32,6 @@ namespace HotelManagementSystem.View
             SignUpVM.loggedUser = loggedUser;
             SignUpVM.isEdited = isEdited;
             SignUpVM.isAdmin = isAdmin;
-            MessageBox.Show(isAdmin.ToString());
             InitializeComponent();
         }
 

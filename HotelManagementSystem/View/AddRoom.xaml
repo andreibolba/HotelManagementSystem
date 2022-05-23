@@ -79,7 +79,7 @@
             <ComboBoxItem Content="Double Room"></ComboBoxItem>
             <ComboBoxItem Content="Villa"></ComboBoxItem>
             <ComboBoxItem Content="Apartament cu 2 camere"></ComboBoxItem>
-            <ComboBoxItem Content="Apartament cu  camere"></ComboBoxItem>
+            <ComboBoxItem Content="Apartament cu 3 camere"></ComboBoxItem>
             <ComboBoxItem Content="Penthhouse"></ComboBoxItem>
         </ComboBox>
         <Label Content="Room numbers:"

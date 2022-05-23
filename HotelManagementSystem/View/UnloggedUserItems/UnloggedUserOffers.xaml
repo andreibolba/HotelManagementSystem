@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="HotelManagementSystem.View.UnloggedUserItems.UnloggedUserOffers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HotelManagementSystem.View.UnloggedUserItems"
+              mc:Ignorable="d"
+             xmlns:vm="clr-namespace:HotelManagementSystem.ViewModel.UnloggedUserItems"
+            Height="323" 
+            Width="513.5">
+
+    <UserControl.DataContext>
+        <vm:UnloggedUserOfferVM/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Label 
+            x:Name="label" 
+            Content="Offer" 
+            HorizontalAlignment="Center" 
+            Margin="0,33,0,0" 
+            VerticalAlignment="Top" 
+            Foreground="White" 
+            FontFamily="Open Sans" 
+            FontSize="19" 
+            Height="34"/>
+
+        <ListView
+                  Width="500"
+                  Background="#272537"
+                  Foreground="White"
+                  SelectedIndex="{Binding ID}"
+                  ItemsSource="{Binding offers}"
+                  ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="7,72,6,30"
+                  />
+
+        <Grid  Height="60"
+               VerticalAlignment="Bottom"/>
+    </Grid>
+</UserControl>

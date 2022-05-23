@@ -90,7 +90,7 @@
             x:Name="button" 
             Content="Log in" 
             HorizontalAlignment="Left" 
-            Margin="345,282,0,0" 
+            Margin="345,262,0,0" 
             VerticalAlignment="Top" 
             Width="323" 
             FontSize="12" 
@@ -119,13 +119,40 @@
             x:Name="button2" 
             Content="Sign Up" 
             HorizontalAlignment="Left" 
-            Margin="345,326,0,0" 
+            Margin="345,311,0,0" 
             VerticalAlignment="Top" 
             Width="323" 
             FontSize="12" 
             FontFamily="Open Sans" 
             Height="36"
             Command="{Binding SignUp}">
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF00F260" Offset="0"/>
+                    <GradientStop Color="#FF0575E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button 
+            x:Name="button2_Copy" 
+            Content="Back" 
+            HorizontalAlignment="Left" 
+            Margin="345,360,0,0" 
+            VerticalAlignment="Top" 
+            Width="323" 
+            FontSize="12" 
+            FontFamily="Open Sans" 
+            Height="36"
+            Command="{Binding Back}">
 
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

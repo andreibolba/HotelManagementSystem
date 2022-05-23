@@ -102,6 +102,32 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                 }
                 room.Features = features;
             }
+
+            foreach(Room room in rooms)
+            {
+                ObservableCollection<Price> prices = new ObservableCollection<Price>();
+                using (SqlConnection con = DALHelper.Connection)
+                {
+                    SqlCommand cmd = new SqlCommand("GetPrices", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlParameter userEmail = new SqlParameter("@roomID", room.Id);
+                    cmd.Parameters.Add(userEmail);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Price price = new Price();
+                        price.Id= reader.GetInt32(0);
+                        price.StartDate=reader.GetDateTime(1);
+                        price.EndDate=reader.GetDateTime(2);
+                        price.RoomPrice = reader.GetInt32(3);
+                        prices.Add(price);
+                    }
+                    reader.Close();
+                    con.Close();
+                }
+                room.Prices = prices;
+            }
             return rooms;
         }
     }

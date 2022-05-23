@@ -115,8 +115,7 @@
             Grid.Column="1"
             Background="#272537"
             Foreground="White"
-            SelectedIndex="{Binding ID}"
-            ItemsSource="{Binding offers}"
+            ItemsSource="{Binding prices}"
             ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="20,197,28,45"
                   />
         <Button Content="Next room"

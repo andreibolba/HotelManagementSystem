@@ -18,7 +18,7 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
         public string nextButton { get; set; }
         public string prevButton { get; set; }
         public ObservableCollection<string> features { get; set; }
-        public ObservableCollection<string> price { get; set; }
+        public ObservableCollection<string> prices { get; set; }
         public ObservableCollection<Room> rooms { get; set; }
 
         private RoomBLL roomBLL = new RoomBLL();
@@ -26,6 +26,7 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
         public UnloggedUserRoomsVM()
         {
             features = new ObservableCollection<string>();
+            prices = new ObservableCollection<string>();
             rooms = roomBLL.getAllRooms();
             if (rooms.Count != 0)
             {
@@ -33,6 +34,8 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
                 roomNumber = rooms[id].Number.ToString();
                 foreach (Feature feature in rooms[id].Features)
                     features.Add(feature.Name);
+                foreach (Price price in rooms[id].Prices)
+                    prices.Add(price.RoomPrice + " de la " + price.StartDate.ToString().Substring(0,8) + " -> " + price.EndDate.ToString().Substring(0, 8));
                 if (id == 0)
                 {
                     prevButton = "Hidden";
@@ -67,13 +70,17 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
                 OnPropertyChanged("nextButton");
             }
             features = new ObservableCollection<string>();
+            prices = new ObservableCollection<string>();
             roomName = rooms[id].Name;
             roomNumber = rooms[id].Number.ToString();
             foreach (Feature feature in rooms[id].Features)
                 features.Add(feature.Name);
+            foreach (Price price in rooms[id].Prices)
+                prices.Add(price.RoomPrice + " de la " + price.StartDate.ToString().Substring(0, 8) + " -> " + price.EndDate.ToString().Substring(0, 8));
             OnPropertyChanged("roomName");
             OnPropertyChanged("roomNumber");
             OnPropertyChanged("features");
+            OnPropertyChanged("prices");
         }
 
         private void prev(object parameter)
@@ -90,13 +97,17 @@ namespace HotelManagementSystem.ViewModel.UnloggedUserItems
                 OnPropertyChanged("nextButton");
             }
             features = new ObservableCollection<string>();
+            prices=new ObservableCollection<string>();
             roomName = rooms[id].Name;
             roomNumber = rooms[id].Number.ToString();
             foreach (Feature feature in rooms[id].Features)
                 features.Add(feature.Name);
+            foreach (Price price in rooms[id].Prices)
+                prices.Add(price.RoomPrice + " de la " + price.StartDate.ToString().Substring(0, 8) + " -> " + price.EndDate.ToString().Substring(0, 8));
             OnPropertyChanged("roomName");
             OnPropertyChanged("roomNumber");
             OnPropertyChanged("features");
+            OnPropertyChanged("prices");
         }
 
         public ICommand Next

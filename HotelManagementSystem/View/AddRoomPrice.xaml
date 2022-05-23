@@ -17,7 +17,7 @@
     </Window.DataContext>
 
     <Grid Background="#272537">
-        <Label Content="Add Price"
+        <Label Content="{Binding title}"
                HorizontalAlignment="Center"
                VerticalAlignment="Top"
                Margin="0,20,0,0"
@@ -97,7 +97,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Add"
+        <Button Content="{Binding btnTitle}"
             Height="47"
             Width="120"
             VerticalAlignment="Bottom"

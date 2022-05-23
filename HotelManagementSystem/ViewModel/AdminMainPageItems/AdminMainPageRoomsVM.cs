@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows;
 using HotelManagementSystem.Model.EntityLayer;
 using System.Collections.ObjectModel;
+using HotelManagementSystem.View;
 
 namespace HotelManagementSystem.ViewModel.AdminMainPageItems
 {
@@ -23,6 +24,7 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
         private ICommand m_price;
         private ICommand m_delete;
         private ICommand m_edit;
+        private ICommand m_editPrice;
 
         public AdminMainPageRoomsVM()
         {
@@ -58,6 +60,13 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
             AddRoomVM.editedRoom = rooms[ID];
             AddRoom editRoom = new AddRoom(loggedUser,true);
             editRoom.Show();
+            Application.Current.Windows[0].Close();
+        }
+
+        private void editDeletePrice(object parameter)
+        {
+            DeleteEditPrice deleteEditPrice = new DeleteEditPrice(loggedUser, rooms[ID]);
+            deleteEditPrice.Show();
             Application.Current.Windows[0].Close();
         }
 
@@ -99,6 +108,16 @@ namespace HotelManagementSystem.ViewModel.AdminMainPageItems
                 if (m_edit == null)
                     m_edit = new RelayCommand(edit);
                 return m_edit;
+            }
+        }
+
+        public ICommand EditPrice
+        {
+            get
+            {
+                if(m_editPrice == null)
+                    m_editPrice = new RelayCommand(editDeletePrice);
+                return m_editPrice;
             }
         }
     }

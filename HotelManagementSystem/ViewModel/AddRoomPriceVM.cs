@@ -18,15 +18,32 @@ namespace HotelManagementSystem.ViewModel
         PriceBLL priceBLL = new PriceBLL();
         public static Room currentRoom;
         public static Users loggedUser;
+        public static Price editedPrice;
+        public static bool isEdited { get; set; } = false;
+
         public string price { get; set; }
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
 
+        public string title { get; set; }
+        public string btnTitle { get; set; }
+
         public AddRoomPriceVM()
         {
-            currentRoom = AdminMainPageRoomsVM.currentRoom;
-            startDate = DateTime.Now;
-            endDate = DateTime.Now;
+            if (isEdited == false)
+            {
+                currentRoom = AdminMainPageRoomsVM.currentRoom;
+                startDate = DateTime.Now;
+                endDate = DateTime.Now;
+                title = "Add price";
+                btnTitle = "Add";
+                return;
+            }
+            price = editedPrice.RoomPrice.ToString();
+            startDate=editedPrice.StartDate;
+            endDate=editedPrice.EndDate;
+            title = "Edit price";
+            btnTitle = "Edit";
         }
 
         private ICommand m_back;
@@ -41,15 +58,29 @@ namespace HotelManagementSystem.ViewModel
 
         private void add(object parameter)
         {
-            if (string.IsNullOrEmpty(price)==false)
+            if (isEdited == false)
             {
-                Price priceRoom = new Price();
-                priceRoom.StartDate = startDate;
-                priceRoom.EndDate = endDate;
-                priceRoom.RoomPrice = Int32.Parse(price);
-                priceRoom.RoomID = currentRoom.Id;
-                priceBLL.addPrice(priceRoom);
-                MessageBox.Show("Price added");
+                if (string.IsNullOrEmpty(price) == false)
+                {
+                    Price priceRoom = new Price();
+                    priceRoom.StartDate = startDate;
+                    priceRoom.EndDate = endDate;
+                    priceRoom.RoomPrice = Int32.Parse(price);
+                    priceRoom.RoomID = currentRoom.Id;
+                    priceBLL.addPrice(priceRoom);
+                    MessageBox.Show("Price added");
+                    return;
+                }
+                MessageBox.Show("Enter a price");
+                return;
+            }
+            if (string.IsNullOrEmpty(price) == false)
+            {
+                editedPrice.StartDate = startDate;
+                editedPrice.EndDate = endDate;
+                editedPrice.RoomPrice = Int32.Parse(price);
+                priceBLL.editPrice(editedPrice);
+                MessageBox.Show("Price updated");
                 return;
             }
             MessageBox.Show("Enter a price");

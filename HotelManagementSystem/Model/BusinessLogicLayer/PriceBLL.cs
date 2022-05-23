@@ -16,5 +16,15 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
         {
             priceDAL.AddPrice(price);
         }
+
+        public void deletePrice(Price price)
+        {
+            priceDAL.DeletePrice(price);
+        }
+
+        public void editPrice(Price price)
+        {
+            priceDAL.EditPrice(price);
+        }
     }
 }

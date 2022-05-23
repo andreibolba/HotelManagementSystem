@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem.Model.EntityLayer
 {
-    class Room : BasePropertyChanged
+    public class Room : BasePropertyChanged
     {
         private int id;
         private string name;

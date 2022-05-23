@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagementSystem.Model.EntityLayer
 {
-    class Price : BasePropertyChanged
+    public class Price : BasePropertyChanged
     {
         private int id;
         private DateTime startDate;

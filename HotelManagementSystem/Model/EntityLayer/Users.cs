@@ -21,7 +21,7 @@ namespace HotelManagementSystem.Model.EntityLayer
         private string sex;
         private string address;
         private Image picture;
-        private Bitmap profilePic;
+        private BitmapImage profilePic;
         private string deleted;
 
         public Users()
@@ -154,7 +154,7 @@ namespace HotelManagementSystem.Model.EntityLayer
             }
         }
 
-        public Bitmap ProfilePic
+        public BitmapImage ProfilePic
         {
             get { return profilePic; }
             set { profilePic = value;}

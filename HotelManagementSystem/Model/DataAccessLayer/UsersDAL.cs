@@ -125,23 +125,16 @@ namespace HotelManagementSystem.Model.DataAccessLayer
             }
         }
 
-        private static readonly ImageConverter _imageConverter = new ImageConverter();
-        public static Bitmap GetImageFromByteArray(byte[] byteArray)
+        /*public BitmapImage ConvertToImage(System.Data.Linq.Binary binary)
         {
-            Bitmap bm = (Bitmap)_imageConverter.ConvertFrom(byteArray);
-
-            if (bm != null && (bm.HorizontalResolution != (int)bm.HorizontalResolution ||
-                               bm.VerticalResolution != (int)bm.VerticalResolution))
-            {
-                // Correct a strange glitch that has been observed in the test program when converting 
-                //  from a PNG file image created by CopyImageToByteArray() - the dpi value "drifts" 
-                //  slightly away from the nominal integer value
-                bm.SetResolution((int)(bm.HorizontalResolution + 0.5f),
-                                 (int)(bm.VerticalResolution + 0.5f));
-            }
-
-            return bm;
-        }
+            byte[] buffer = binary.ToArray();
+            MemoryStream stream = new MemoryStream(buffer);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = stream;
+            image.EndInit();
+            return image;
+        }*/
 
         public Users logInUser(string email, string password)
         {
@@ -177,7 +170,7 @@ namespace HotelManagementSystem.Model.DataAccessLayer
                     int columnIndex = 10;
                     int bufferIndex = 0;
                     int bytesReceived = Convert.ToInt32(reader.GetBytes(columnIndex, startIndex, outbyte, bufferIndex, bufferSize));
-                    //user.ProfilePic = GetImageFromByteArray(outbyte);
+                    //user.ProfilePic= ConvertToImage(outbyte);
                 }
                 reader.Close();
                 return user;
@@ -234,9 +227,9 @@ namespace HotelManagementSystem.Model.DataAccessLayer
             using (SqlConnection con = DALHelper.Connection)
             {
                 byte[] b = imageToByteArray(user.Picture, user.Picture.RawFormat);
-                SqlCommand cmd = new SqlCommand("UserUpdate", con);
+                SqlCommand cmd = new SqlCommand("PicUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                SqlParameter id = new SqlParameter("@userID", user.IdUser);
+                SqlParameter id = new SqlParameter("@id", user.IdUser);
                 cmd.Parameters.Add(id);
                 SqlParameter param = cmd.Parameters.Add("@picture", SqlDbType.VarBinary);
                 param.Value = b;

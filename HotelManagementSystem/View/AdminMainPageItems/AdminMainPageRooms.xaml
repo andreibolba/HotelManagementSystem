@@ -48,7 +48,7 @@
             FontFamily="Open Sans" 
             Height="32"
             Width="100"
-            Margin="76,275,338,16"
+            Margin="105,275,308,16"
             Command="{Binding Add}">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -72,7 +72,7 @@
                 FontFamily="Open Sans" 
                 Height="32"
                 Command="" Width="100"
-                Margin="375,275,38,16"
+                Margin="342,275,72,16"
             >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -98,6 +98,30 @@
                 Command="" Width="100"
                 Margin="223,275,190,16"
             >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform Angle="-45" CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FF00F260" Offset="0"/>
+                    <GradientStop Color="#FF0575E6" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button 
+            x:Name="button_Copy2" 
+            Content="Add price" 
+            FontSize="12" 
+            FontFamily="Open Sans" 
+            Height="32"
+            Width="100"
+            Margin="0,275,414,16"
+            Command="{Binding Price}">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>

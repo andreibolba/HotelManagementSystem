@@ -12,6 +12,7 @@ namespace HotelManagementSystem.Model.EntityLayer
         private DateTime startDate;
         private DateTime endDate;
         private int roomPrice;
+        private int roomId;
 
         public int Id
         {
@@ -35,6 +36,12 @@ namespace HotelManagementSystem.Model.EntityLayer
         {
             get { return roomPrice; }
             set { roomPrice = value; }
+        }
+
+        public int RoomID
+        {
+            get { return roomId; }
+            set { roomId = value; }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelManagementSystem.ViewModel;
+using HotelManagementSystem.Model.EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,12 +17,13 @@ using System.Windows.Shapes;
 namespace HotelManagementSystem.View
 {
     /// <summary>
-    /// Interaction logic for Room.xaml
+    /// Interaction logic for AddRoomPrice.xaml
     /// </summary>
-    public partial class Room : Window
+    public partial class AddRoomPrice : Window
     {
-        public Room()
+        public AddRoomPrice(Users loggedUser)
         {
+            AddRoomPriceVM.loggedUser = loggedUser;
             InitializeComponent();
         }
     }

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HotelManagementSystem.Model.DataAccessLayer
 {
@@ -57,12 +58,69 @@ namespace HotelManagementSystem.Model.DataAccessLayer
             }
         }
 
+        public ObservableCollection<AvailableRooms> getAllAvailableRooms(DateTime start,DateTime finish)
+        {
+            ObservableCollection<AvailableRooms> rooms = new ObservableCollection<AvailableRooms>();
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("GettRommsBetweenDates", con);
+                SqlParameter startDate = new SqlParameter("@startDate", start);
+                SqlParameter finishDate = new SqlParameter("@endDate", finish);
+                cmd.Parameters.Add(startDate);
+                cmd.Parameters.Add(finishDate);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    AvailableRooms room = new AvailableRooms();
+                    room.Id = reader.GetInt32(0);
+                    room.Name = reader.GetString(1);
+                    room.Number = reader.GetInt32(2);
+                    room.StartDate=reader.GetDateTime(3);
+                    room.EndDate=reader.GetDateTime(4);
+                    room.Price = reader.GetInt32(5);
+                    rooms.Add(room);
+                }
+                reader.Close();
+                con.Close();
+            }
+
+
+            foreach (AvailableRooms room in rooms)
+            {
+                ObservableCollection<Feature> features = new ObservableCollection<Feature>();
+                using (SqlConnection con = DALHelper.Connection)
+                {
+                    SqlCommand cmd = new SqlCommand("GetAllRoomsFeature", con);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlParameter userEmail = new SqlParameter("@id", room.Id);
+                    cmd.Parameters.Add(userEmail);
+                    con.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Feature feature = new Feature();
+                        feature.Id = reader.GetInt32(0);
+                        feature.Name = reader.GetString(1);
+                        feature.Deleted = reader.GetString(2);
+                        features.Add(feature);
+                    }
+                    reader.Close();
+                    con.Close();
+                }
+                room.Features = features;
+            }
+            return rooms;
+        }
+
         public ObservableCollection<Room> getAllRooms()
         {
             ObservableCollection<Room> rooms = new ObservableCollection<Room>();
             using (SqlConnection con = DALHelper.Connection)
             {
                 SqlCommand cmd = new SqlCommand("GetAllRooms", con);
+                
                 cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();

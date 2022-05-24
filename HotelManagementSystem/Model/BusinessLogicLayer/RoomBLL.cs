@@ -23,6 +23,11 @@ namespace HotelManagementSystem.Model.BusinessLogicLayer
             return roomDAL.getAllRooms();
         }
 
+        public ObservableCollection<AvailableRooms> getAllAvailableRooms(DateTime start,DateTime finish)
+        {
+            return roomDAL.getAllAvailableRooms(start,finish);
+        }
+
         public void deleteRoom(Room room)
         {
             roomDAL.DeletRoom(room);

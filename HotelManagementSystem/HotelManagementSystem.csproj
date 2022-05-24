@@ -198,6 +198,7 @@
     <Compile Include="Model\DataAccessLayer\RoomDAL.cs" />
     <Compile Include="Model\DataAccessLayer\ServiceDAL.cs" />
     <Compile Include="Model\DataAccessLayer\UsersDAL.cs" />
+    <Compile Include="Model\EntityLayer\AvailableRooms.cs" />
     <Compile Include="Model\EntityLayer\BasePropertyChanged.cs" />
     <Compile Include="Model\EntityLayer\Feature.cs" />
     <Compile Include="Model\EntityLayer\Offers.cs" />
@@ -208,7 +209,9 @@
     <Compile Include="Tools\Tools.cs" />
     <Compile Include="ViewModel\AddOfferVM.cs" />
     <Compile Include="ViewModel\AddRoomPriceVM.cs" />
+    <Compile Include="ViewModel\ChooseDateVM.cs" />
     <Compile Include="ViewModel\DeleteEditPriceVM.cs" />
+    <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserAvailableRoomsVM.cs" />
     <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserOfferVM.cs" />
     <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserRoomsVM.cs" />
     <Compile Include="ViewModel\UnloggedUserItems\UnloggedUserServicesVM.cs" />
@@ -269,6 +272,9 @@
     <Compile Include="View\ClientMainPage.xaml.cs">
       <DependentUpon>ClientMainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DateChoose.xaml.cs">
+      <DependentUpon>DateChoose.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DeleteEditPrice.xaml.cs">
       <DependentUpon>DeleteEditPrice.xaml</DependentUpon>
     </Compile>
@@ -290,6 +296,9 @@
     </Compile>
     <Compile Include="View\UnLoggedUser.xaml.cs">
       <DependentUpon>UnLoggedUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\UnloggedUserItems\UnloggedUserAvailableRooms.xaml.cs">
+      <DependentUpon>UnloggedUserAvailableRooms.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UnloggedUserItems\UnloggedUserOffers.xaml.cs">
       <DependentUpon>UnloggedUserOffers.xaml</DependentUpon>
@@ -360,6 +369,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DateChoose.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DeleteEditPrice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -381,6 +394,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UnLoggedUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UnloggedUserItems\UnloggedUserAvailableRooms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -444,7 +461,10 @@
     <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\analyzers\vb\Microsoft.VisualStudio.Threading.Analyzers.VisualBasic.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModel\LoggedUserItems\" />
+    <Folder Include="View\LoggedUserItems\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\build\Microsoft.VisualStudio.Threading.Analyzers.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Threading.Analyzers.17.1.46\build\Microsoft.VisualStudio.Threading.Analyzers.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

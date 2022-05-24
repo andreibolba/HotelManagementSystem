@@ -43,6 +43,9 @@
             <DataTemplate DataType="{x:Type viewModelUnloged:UnloggedUserServicesVM}">
                 <viewUnlogged:UnloggedUserServices/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModelUnloged:UnloggedUserAvailableRoomsVM}">
+                <viewUnlogged:UnloggedUserAvailableRooms/>
+            </DataTemplate>
 
         </ResourceDictionary>
     </Application.Resources>

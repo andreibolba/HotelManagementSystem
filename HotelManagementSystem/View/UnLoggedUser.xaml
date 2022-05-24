@@ -50,12 +50,19 @@
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
                          Command="{Binding Offers}"/>
+
             <RadioButton Content="Services"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
                          Style="{StaticResource MenuButtonTheme}"
                          Command="{Binding Service}"/>
+            <RadioButton Content="See available rooms"
+                         Height="50"
+                         Foreground="White"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding Available}"/>
         </StackPanel>
 
         <TextBox Width="250"
@@ -100,6 +107,7 @@
                         Grid.Column="1"
                         Margin="10"
                         Content="{Binding CurrentView}"
+                        
                         />
 
     </Grid>

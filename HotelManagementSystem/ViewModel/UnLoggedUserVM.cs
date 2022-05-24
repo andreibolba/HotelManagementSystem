@@ -7,16 +7,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using HotelManagementSystem.View.UnloggedUserItems;
+using System.Threading;
 
 namespace HotelManagementSystem.ViewModel
 {
-    class UnLoggedUserVM:BaseVM
+    public class UnLoggedUserVM : BaseVM
     {
         public object CurrentView { get; set; }
 
-        UnloggedUserServices unLoggedUserServices{get; set; }
-        UnloggedUserOffers unloggedUserOffers{get; set; }
-        UnloggedUserRooms unloggedUserRooms{get; set; }
+        UnloggedUserServices unLoggedUserServices { get; set; }
+        UnloggedUserOffers unloggedUserOffers { get; set; }
+        UnloggedUserRooms unloggedUserRooms { get; set; }
+        UnloggedUserAvailableRooms unloggedUserAvailableRooms { get; set; }
+
+        public static DateTime start { get; set; }
+        public static DateTime finish { get; set; }
+
 
         public UnLoggedUserVM()
         {
@@ -24,14 +30,14 @@ namespace HotelManagementSystem.ViewModel
             CurrentView = unloggedUserRooms;
             unloggedUserOffers = new UnloggedUserOffers();
             unLoggedUserServices= new UnloggedUserServices();
+            unloggedUserAvailableRooms=new UnloggedUserAvailableRooms();
         }
-
-
 
         private ICommand m_logIn;
         private ICommand m_rooms;
         private ICommand m_offers;
         private ICommand m_services;
+        private ICommand m_available;
 
         private void rooms(object parameter)
         {
@@ -48,6 +54,19 @@ namespace HotelManagementSystem.ViewModel
         private void services(object parameter)
         {
             CurrentView = unLoggedUserServices;
+            OnPropertyChanged("CurrentView");
+        }
+
+        private void available(object parameter)
+        {
+            DateChoose dateChoose=new DateChoose(this,1);
+            dateChoose.Show();
+        }
+
+        public void seeRooms(DateTime start,DateTime end)
+        {
+            unloggedUserAvailableRooms = new UnloggedUserAvailableRooms(start,end);
+            CurrentView = unloggedUserAvailableRooms;
             OnPropertyChanged("CurrentView");
         }
 
@@ -95,6 +114,16 @@ namespace HotelManagementSystem.ViewModel
                 if (m_logIn == null)
                     m_logIn = new RelayCommand(logIn);
                 return m_logIn;
+            }
+        }
+
+        public ICommand Available
+        {
+            get
+            {
+                if (m_available == null)
+                    m_available = new RelayCommand(available);
+                return m_available;
             }
         }
     }

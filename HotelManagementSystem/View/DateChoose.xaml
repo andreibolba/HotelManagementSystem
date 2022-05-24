@@ -1,0 +1,81 @@
+﻿<Window x:Class="HotelManagementSystem.View.DateChoose"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelManagementSystem.View"
+        xmlns:vm="clr-namespace:HotelManagementSystem.ViewModel"
+        mc:Ignorable="d"
+        Title="LogIn" 
+        Height="320" 
+        Width="500"
+        ResizeMode="NoResize" 
+        WindowStyle="None" 
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:ChooseDateVM/>
+    </Window.DataContext>
+
+    <Grid Background="#272537">
+        <Label Content="Choose dates"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0,20,0,0"
+               FontSize="30"
+               Foreground="White"
+               />
+
+        <Label Content="Start date"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="92,99,0,0"
+               FontSize="30"
+               Foreground="White"
+               />
+        <DatePicker 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            Margin="259,112,0,0" 
+            Height="37" 
+            Width="161"
+            BorderThickness="0,0,0,0"
+            FontSize="15"
+            SelectedDate="{Binding start}"/>
+        <Label Content="Finish date"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="92,185,0,0"
+            FontSize="30"
+            Foreground="White"
+               />
+        <DatePicker 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            Margin="259,198,0,0" 
+            Height="37" 
+            Width="161"
+            BorderThickness="0,0,0,0"
+            FontSize="15"
+            SelectedDate="{Binding end}"/>
+
+        <Button Content="Choose"
+            Height="47"
+            Width="120"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            Margin="0,256,0,0"
+            Background="Transparent"
+            BorderBrush="White"
+            Foreground="White"
+            FontFamily="Open Sans"
+            FontSize="15"
+            Visibility="{Binding visible}"
+            Command="{Binding Choose}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

@@ -41,17 +41,27 @@
                          Height="50"
                          Foreground="White"
                          FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}"/>
+                         Style="{StaticResource MenuButtonTheme}"
+                         IsChecked="True"
+                         Command="{Binding Rooms}"/>
             <RadioButton Content="Offers"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}"/>
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding Offers}"/>
             <RadioButton Content="Services"
                          Height="50"
                          Foreground="White"
                          FontSize="14"
-                         Style="{StaticResource MenuButtonTheme}"/>
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding Service}"/>
+            <RadioButton Content="Available rooms"
+                         Height="50"
+                         Foreground="White"
+                         FontSize="14"
+                         Style="{StaticResource MenuButtonTheme}"
+                         Command="{Binding AvailableRooms}"/>
             <!-- Vor avea visivility false pentru utilizator neautentificat-->
             <RadioButton Content="History"
                          Height="50"
@@ -90,7 +100,7 @@
             Width="70"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Left"
-            Margin="105,0,0,10"
+            Margin="105,0,0,1"
             Background="Transparent"
             BorderBrush="White"
             Foreground="White"
@@ -108,7 +118,7 @@
             Width="70"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Left"
-            Margin="25,0,0,10"
+            Margin="25,0,0,2"
             Background="Transparent"
             BorderBrush="White"
             Foreground="White"
@@ -120,6 +130,11 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <ContentControl Grid.Row="1"
+            Grid.Column="1"
+            Margin="10,10,10,10"
+            Content="{Binding CurrentView}"
+                        />
 
 
     </Grid>
